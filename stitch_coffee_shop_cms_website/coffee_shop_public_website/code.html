@@ -1,0 +1,1463 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee Shop — Cerita dan Rasa dalam Setiap Cangkir</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'espresso': '#38251E',
+        'cream': '#F5F0E8',
+        'caramel': '#B98255',
+        'beige': '#D9C7B5',
+        'charcoal': '#292522',
+        'accent': '#B98255',
+        'light-primary': '#38251E',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#F5F0E8',
+        'light-on-primary-container': '#38251E',
+        'light-secondary': '#B98255',
+        'light-on-secondary': '#272727',
+        'light-secondary-container': '#EFE6DC',
+        'light-on-secondary-container': '#38251E',
+        'light-surface': '#FAF8F5',
+        'light-on-surface': '#292522',
+        'light-surface-variant': '#F3EDE4',
+        'light-on-surface-variant': '#5A4E47',
+        'light-outline': '#D9C7B5',
+        'light-outline-variant': '#E7DDD2',
+        'light-success': '#2E6B4A',
+        'light-on-success': '#FFFFFF',
+        'light-warning': '#B4691B',
+        'light-on-warning': '#101010',
+        'light-error': '#A32D2D',
+        'light-on-error': '#FFFFFF',
+        'dark-primary': '#E7DDD2',
+        'dark-on-primary': '#241712',
+        'dark-primary-container': '#4D362C',
+        'dark-on-primary-container': '#F5F0E8',
+        'dark-secondary': '#D4A57E',
+        'dark-on-secondary': '#2E1C11',
+        'dark-secondary-container': '#5C3E2A',
+        'dark-on-secondary-container': '#FAF8F5',
+        'dark-surface': '#1E1613',
+        'dark-on-surface': '#F5F0E8',
+        'dark-surface-variant': '#2C211C',
+        'dark-on-surface-variant': '#D9C7B5',
+        'dark-outline': '#5C4A40',
+        'dark-outline-variant': '#3E3029',
+        'dark-success': '#57AB7A',
+        'dark-on-success': '#0E2B1B',
+        'dark-warning': '#EAA655',
+        'dark-on-warning': '#381E03',
+        'dark-error': '#F28B82',
+        'dark-on-error': '#3C0D0D',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Poppins"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '38px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'display-md': ['40px', { lineHeight: '48px', fontWeight: '600' }],
+        'display-md-mobile': ['28px', { lineHeight: '34px', fontWeight: '600' }],
+        'headline-lg': ['32px', { lineHeight: '40px', fontWeight: '600' }],
+        'headline-lg-mobile': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '26px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '26px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.5px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '180ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block; width: 1em; height: 1em; line-height: 1 !important;
+      box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle;
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="min-h-[1024px] bg-light-surface text-light-on-surface font-body antialiased selection:bg-caramel selection:text-white" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+  <!-- Top Demo Bar Banner connecting to CMS -->
+  <aside class="bg-espresso text-cream text-body-sm py-2 px-4 border-b border-[#4D362C] sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-label text-label-sm uppercase tracking-wider text-caramel">Demo Proposal Website</span>
+        <span class="text-white/60 text-body-sm hidden md:inline">| Seluruh konten dapat dikelola langsung via CMS tanpa coding</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-body-sm text-cream/70 hidden sm:inline">Mode Pratinjau Publik</span>
+        <button onclick="document.getElementById(&#39;cms-sync-indicator&#39;).classList.toggle(&#39;hidden&#39;)" class="inline-flex items-center gap-1.5 px-3 py-1 bg-caramel/20 hover:bg-caramel/30 text-caramel border border-caramel/40 rounded text-label-sm font-label transition-colors">
+          <span class="material-symbols-outlined text-[16px]">sync</span>
+          Status Sinkronisasi CMS
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CMS Live Sync Overlay Alert (Demonstrates live integration) -->
+  <div id="cms-sync-indicator" class="hidden bg-[#2C211C] text-cream px-6 py-3 border-b border-caramel/30 sticky top-[41px] z-40">
+    <div class="max-w-7xl mx-auto flex items-center justify-between text-body-sm">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-caramel">hub</span>
+        <span><strong>Integrasi Aktif:</strong> Hero headline, katalog menu, postingan artikel, dan jam operasional terhubung dengan Admin CMS Dashboard.</span>
+      </div>
+      <button onclick="document.getElementById(&#39;cms-sync-indicator&#39;).classList.add(&#39;hidden&#39;)" class="text-white/60 hover:text-white">
+        <span class="material-symbols-outlined text-[18px]">close</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Primary Navigation Bar -->
+  <header class="bg-white/95 backdrop-blur border-b border-light-outline-variant sticky top-[41px] z-30 transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Typographic Placeholder Logo -->
+      <a href="#beranda" class="group flex items-center gap-3">
+        <div class="w-10 h-10 rounded-DEFAULT bg-light-primary text-light-on-primary flex items-center justify-center font-headline text-headline-sm font-bold shadow-sm group-hover:bg-caramel transition-colors">
+          CS
+        </div>
+        <div class="flex flex-col">
+          <span class="font-headline text-headline-sm text-light-primary leading-tight font-bold tracking-tight">
+            Coffee Shop
+          </span>
+          <span class="text-label-sm text-caramel font-label tracking-widest uppercase">
+            Artisanal Roastery
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <button onclick="switchTab(&#39;beranda&#39;)" id="nav-btn-beranda" class="nav-item font-label text-label-md text-caramel transition-colors py-1 border-b-2 border-caramel">Beranda</button>
+        <button onclick="switchTab(&#39;tentang&#39;)" id="nav-btn-tentang" class="nav-item font-label text-label-md text-light-on-surface-variant hover:text-light-primary transition-colors py-1 border-b-2 border-transparent">Tentang Kami</button>
+        <button onclick="switchTab(&#39;menu&#39;)" id="nav-btn-menu" class="nav-item font-label text-label-md text-light-on-surface-variant hover:text-light-primary transition-colors py-1 border-b-2 border-transparent">Menu</button>
+        <button onclick="switchTab(&#39;artikel&#39;)" id="nav-btn-artikel" class="nav-item font-label text-label-md text-light-on-surface-variant hover:text-light-primary transition-colors py-1 border-b-2 border-transparent">Artikel</button>
+        <button onclick="switchTab(&#39;galeri&#39;)" id="nav-btn-galeri" class="nav-item font-label text-label-md text-light-on-surface-variant hover:text-light-primary transition-colors py-1 border-b-2 border-transparent">Galeri</button>
+        <button onclick="switchTab(&#39;kontak&#39;)" id="nav-btn-kontak" class="nav-item font-label text-label-md text-light-on-surface-variant hover:text-light-primary transition-colors py-1 border-b-2 border-transparent">Kontak</button>
+      </nav>
+
+      <!-- Action Button & Mobile Toggle -->
+      <div class="flex items-center gap-4">
+        <button onclick="switchTab(&#39;menu&#39;)" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-light-primary hover:bg-[#291B16] text-light-on-primary font-label text-label-md rounded-DEFAULT transition-all shadow-sm">
+          <span class="material-symbols-outlined text-[18px]">local_cafe</span>
+          <span>Pesan / Menu</span>
+        </button>
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-toggle" onclick="toggleMobileMenu()" class="lg:hidden p-2 text-light-primary hover:bg-light-surface-variant rounded" aria-label="Buka menu navigasi">
+          <span class="material-symbols-outlined text-[26px]">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-drawer" class="hidden lg:hidden border-t border-light-outline-variant bg-white px-6 py-4 flex flex-col gap-3">
+      <button onclick="switchTab(&#39;beranda&#39;); toggleMobileMenu();" class="text-left py-2 font-label text-label-md text-caramel">Beranda</button>
+      <button onclick="switchTab(&#39;tentang&#39;); toggleMobileMenu();" class="text-left py-2 font-label text-label-md text-light-on-surface-variant">Tentang Kami</button>
+      <button onclick="switchTab(&#39;menu&#39;); toggleMobileMenu();" class="text-left py-2 font-label text-label-md text-light-on-surface-variant">Menu</button>
+      <button onclick="switchTab(&#39;artikel&#39;); toggleMobileMenu();" class="text-left py-2 font-label text-label-md text-light-on-surface-variant">Artikel</button>
+      <button onclick="switchTab(&#39;galeri&#39;); toggleMobileMenu();" class="text-left py-2 font-label text-label-md text-light-on-surface-variant">Galeri</button>
+      <button onclick="switchTab(&#39;kontak&#39;); toggleMobileMenu();" class="text-left py-2 font-label text-label-md text-light-on-surface-variant">Kontak</button>
+    </div>
+  </header>
+
+  <!-- ======================================================== -->
+  <!-- TAB 1: HOMEPAGE (BERANDA) -->
+  <!-- ======================================================== -->
+  <main id="tab-beranda" class="page-tab block">
+
+    <!-- Hero Section -->
+    <section class="relative bg-espresso text-cream overflow-hidden">
+      <!-- Large background photograph -->
+      <div class="absolute inset-0 z-0">
+        <img src="https://lh3.googleusercontent.com/aida/ALJJyrAaizU2EuwDJ0woXO269zRRDcdSD2KABWyUxbMsjKBOhNYdFoLaJOqaH9ISoLblka-zw6DYjB46MmOsikRPARVkdIC8kGLyvXn6E7yEbiF1LwdYdgNC61VBLUGm9yriDQXBii9hmCOVfJ2ouUlemmzJnLedcRdn_qYsSRUe6yshKDEF5B5CmC6J-4fDUm6H4GdlKtfcAdZx-f5q5Zs2l3Qrns-B6hHYzADCuHRAwRO9y2qMsXkuuOaLITH1gGymC3c8" alt="Atmosphere Coffee Shop" class="w-full h-full object-cover opacity-35 filter brightness-90">
+        <div class="absolute inset-0 bg-gradient-to-r from-espresso via-espresso/80 to-transparent"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 py-28 lg:py-36 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-8 flex flex-col items-start gap-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-caramel/25 border border-caramel/40 text-caramel font-label text-label-sm tracking-wide">
+            <span class="material-symbols-outlined text-[16px]">verified</span>
+            <span>Profil Resmi Kedai Kopi Spesialti</span>
+          </div>
+
+          <h1 class="font-headline text-display-md lg:text-display-lg font-bold leading-tight text-white max-w-3xl text-balance">
+            Cerita dan Rasa dalam Setiap Cangkir.
+          </h1>
+
+          <p class="text-body-lg text-cream/85 max-w-2xl text-pretty leading-relaxed">
+            Menghadirkan pengalaman menikmati kopi kurasi Nusantara dengan proses roasting presisi dan suasana ruang yang dirancang untuk percakapan hangat, inspirasi, serta ketenangan.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            <button onclick="switchTab(&#39;menu&#39;)" class="px-8 py-4 bg-caramel hover:bg-[#A37046] text-white font-label text-label-lg rounded-DEFAULT transition-all shadow-lg hover:shadow-xl active:scale-[0.98] inline-flex items-center gap-2">
+              <span>Jelajahi Menu</span>
+              <span class="material-symbols-outlined text-[20px]">restaurant_menu</span>
+            </button>
+            <button onclick="switchTab(&#39;tentang&#39;)" class="px-8 py-4 bg-transparent hover:bg-white/10 text-cream border border-cream/30 hover:border-cream font-label text-label-lg rounded-DEFAULT transition-all inline-flex items-center gap-2">
+              <span>Kenali Kami</span>
+              <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 hidden lg:block">
+          <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-xl shadow-2xl flex flex-col gap-4 text-cream">
+            <div class="flex items-center justify-between pb-3 border-b border-white/15">
+              <span class="font-label text-label-md text-caramel flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px]">schedule</span> Jam Buka Hari Ini
+              </span>
+              <span class="text-label-sm bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded font-label border border-emerald-400/30">Buka</span>
+            </div>
+            <div class="space-y-1.5 text-body-sm">
+              <div class="flex justify-between">
+                <span class="text-white/70">Senin – Jumat</span>
+                <span class="font-medium text-white">08:00 – 22:00 WIB</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/70">Sabtu – Minggu</span>
+                <span class="font-medium text-white">07:00 – 23:00 WIB</span>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-white/15 flex items-center gap-2 text-body-sm text-white/80">
+              <span class="material-symbols-outlined text-caramel text-[18px]">location_on</span>
+              <span>Jl. Senopati Raya No. 42, Jakarta Selatan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-20 bg-light-surface">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 relative">
+          <div class="rounded-xl overflow-hidden shadow-lg border border-light-outline-variant">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdwtM-zTMGuX_IVcHsguNcK2zKo9gGNi2ofJCHMMAKcmISTJLIqPFMc0Xm-K6yy31YNZxqUeSbOxJm8EUQfF0LeJw3qJUGHxbmGF9WvOyDfXgbcOetiR0uY9yMin74a_0MzJVEonK5P1gj1O_EJROKAX__nxx7901CJ40ae3BiJCVSp5FZ6KS9YzQ_IN2J3LcDEOgeqVv7JY4J8CTaAUHRXYYHXvb4fCGx4gCZU0hfaqSwKqTqOCJ-4_kVufQ" alt="Proses Sangrai Kopi" class="w-full h-[420px] object-cover">
+          </div>
+          <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-xl border border-light-outline-variant hidden sm:block max-w-xs">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="w-10 h-10 rounded-full bg-light-primary-container text-light-primary flex items-center justify-center font-bold">100%</span>
+              <div>
+                <p class="font-headline text-headline-sm text-light-primary font-bold">Biji Asli Lokal</p>
+                <p class="text-body-sm text-light-on-surface-variant">Langsung dari petani</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 flex flex-col items-start gap-5">
+          <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Tentang Filosofi Kami</span>
+          <h2 class="font-headline text-headline-lg text-light-primary font-bold leading-tight">
+            Ruang Nyaman Berpadu dengan Dedikasi Rasa Kopi Terbaik
+          </h2>
+          <p class="text-body-lg text-light-on-surface-variant leading-relaxed">
+            Berawal dari apresiasi mendalam terhadap kekayaan alam Indonesia, kami bermitra langsung dengan kelompok tani di Aceh Gayo, Kintamani, Toraja, hingga Ijen untuk menyajikan biji kopi pilihan dengan profil sangrai yang menonjolkan keaslian rasa tanah asalnya.
+          </p>
+          <p class="text-body-md text-light-on-surface-variant leading-relaxed">
+            Lebih dari sekadar kedai kopi, kami menciptakan tempat singgah yang ramah di tengah hiruk pikuk kota—tempat ide-ide baru lahir dan relasi bermakna terjalin.
+          </p>
+          <button onclick="switchTab(&#39;tentang&#39;)" class="mt-2 text-light-primary font-label text-label-lg inline-flex items-center gap-2 group hover:text-caramel transition-colors">
+            <span>Pelajari Kisah Lengkap Kami</span>
+            <span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Menu Showcase -->
+    <section class="py-20 bg-light-surface-variant/50 border-y border-light-outline-variant">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Pilihan Barista</span>
+            <h2 class="font-headline text-headline-lg text-light-primary font-bold mt-1">Menu Unggulan Favorit</h2>
+          </div>
+          <button onclick="switchTab(&#39;menu&#39;)" class="inline-flex items-center gap-2 text-label-lg font-label text-light-primary hover:text-caramel transition-colors">
+            <span>Lihat Semua Menu Lengkap</span>
+            <span class="material-symbols-outlined text-[18px]">east</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Item 1 -->
+          <article class="bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+            <div class="h-48 overflow-hidden bg-light-surface-variant">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrB3W1kWCy1P7Nyg4oWuxNq3yCvnpkjRYlS3GtJsRuVAhcXmMnD6GxxF8ToJrprTitvsaQfk3JusLmtWHGOM06FOewRW47rqqweV2WOLDLVWkOke2UdXZ6VyTmiYUXSAS1gDjnTvcppEMdsAY058u3EDLHGdjtFWrdqFl8-P88V5hPjwsR85W60aIi-xk01aKeHaodiNjOBs6F6leyRS2qltC0P6qrH9J1ewJXQKG48huUYDrFAbeYhX" alt="Double Espresso Single Origin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <span class="text-label-sm font-label text-caramel mb-1">Espresso Based</span>
+              <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Double Espresso Gayo</h3>
+              <p class="text-body-sm text-light-on-surface-variant line-clamp-2 mb-4 flex-1">
+                Ekstraksi intens dengan crema keemasan tebal, menyajikan aroma dark chocolate dan spicy herbal notes.
+              </p>
+              <div class="flex items-center justify-between pt-3 border-t border-light-outline-variant">
+                <span class="font-title text-title-md font-semibold text-light-primary tabular-nums">Rp 28.000</span>
+                <span class="text-label-sm text-light-success font-label">Tersedia</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+            <div class="h-48 overflow-hidden bg-light-surface-variant">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrAAnRziPe0SOuHd3PgcZCgE4gHiztW77wZZw0tIg58_G3Dy0XqiNjenhpWpXrLIVlxajFaazi_3xqjZ2AC8AqAHhzfFu6zoSzZg9RSbsgHXcajhxs07EQEUlgSQ5CTUECHKJTp9cgGzKkJYrLjd0I1K8nVo1F3OShJ9fqV6eHUAqhPGmQkI0LMnGl_vpmngN7VXHv9-GpFx7MQ5aFLLQo7FnIkj0ECjlya9Syu5GwOKm33bJlXupF0YqRo" alt="V60 Pour Over Flores Bajawa" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <span class="text-label-sm font-label text-caramel mb-1">Manual Brew</span>
+              <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">V60 Flores Bajawa</h3>
+              <p class="text-body-sm text-light-on-surface-variant line-clamp-2 mb-4 flex-1">
+                Penyeduhan manual kertas filter yang menghasilkan seduhan jernih dengan karakter citrus lembut dan nutty manis.
+              </p>
+              <div class="flex items-center justify-between pt-3 border-t border-light-outline-variant">
+                <span class="font-title text-title-md font-semibold text-light-primary tabular-nums">Rp 35.000</span>
+                <span class="text-label-sm text-light-success font-label">Tersedia</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+            <div class="h-48 overflow-hidden bg-light-surface-variant">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrB7z_kxlF6E6P60gBgio5UEippaz_sY_s6eL2F0YmZwiQ-2gLvo46ZjuS3Sw4Uo3qP-erae_U3myHSJn8DkIsAn_SuAPG59tzrIfuabvPu_zDPhO6cgHFssifjtQRax-nd_WPO4yS4B6QSal9bgI06r8fck_GNNwu2_ap0XGDQC-RKIJXSqqOVnoTi06CaKgxyDpG_UCGW2eipYQUC2CAHQx9Sln2_mF54BBuAgCT5hU29Fr_33KfaIGH5zTwNDEIdD" alt="Signature Sea Salt Caramel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <span class="text-label-sm font-label text-caramel mb-1">Signature Drinks</span>
+              <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Sea Salt Caramel Latte</h3>
+              <p class="text-body-sm text-light-on-surface-variant line-clamp-2 mb-4 flex-1">
+                Perpaduan espresso kental, sirup karamel bakar buatan sendiri, susu segar, dan sentuhan garam laut Bali.
+              </p>
+              <div class="flex items-center justify-between pt-3 border-t border-light-outline-variant">
+                <span class="font-title text-title-md font-semibold text-light-primary tabular-nums">Rp 38.000</span>
+                <span class="text-label-sm text-light-success font-label">Best Seller</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 4 -->
+          <article class="bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+            <div class="h-48 overflow-hidden bg-light-surface-variant">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrCvjV734r20t4cyCWtWs1JdMQ6aGcQ896mleLazUxYhoG2db9gGckDjz3akU3Dc6SRULPP22oxcxUfwJMvzoQK1m2BUohP51w0D7yRJ_mJ_eTmN_T4KXIMI5EC4vxVLnQpFf6Vqp9M1QJHATozCFeCKS9oMczqquun1NFcrJXJ3iqEj-t_9Ho5TWKWrbgGh5cROFsJY7KAmWTUCV9RtD7iZAH4dLFs9QkG8LTXYN3aEJ32Ftx-vZt5dq_xCDsYeRrU" alt="Artisan Butter Croissant" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            </div>
+            <div class="p-5 flex flex-col flex-1">
+              <span class="text-label-sm font-label text-caramel mb-1">Pastry &amp; Snacks</span>
+              <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Golden French Croissant</h3>
+              <p class="text-body-sm text-light-on-surface-variant line-clamp-2 mb-4 flex-1">
+                Croissant renyah berlapis mentega Prancis murni, dipanggang hangat setiap pagi untuk teman minum kopi.
+              </p>
+              <div class="flex items-center justify-between pt-3 border-t border-light-outline-variant">
+                <span class="font-title text-title-md font-semibold text-light-primary tabular-nums">Rp 30.000</span>
+                <span class="text-label-sm text-light-success font-label">Panggang Pagi</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-light-surface">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Komitmen Kami</span>
+          <h2 class="font-headline text-headline-lg text-light-primary font-bold mt-1">Mengapa Memilih Kedai Kopi Kami</h2>
+          <p class="text-body-md text-light-on-surface-variant mt-3">
+            Konsistensi standar kualitas rasa dan keramahan pelayanan adalah janji yang kami jaga setiap hari.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="p-6 bg-white rounded-xl border border-light-outline-variant hover:border-caramel transition-colors shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-light-primary-container text-light-primary flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-[26px]">eco</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Biji Kopi Terpilih</h3>
+            <p class="text-body-sm text-light-on-surface-variant leading-relaxed">
+              Grade 1 Specialty Arabica bersertifikat fair trade dengan asal usul perkebunan yang terverifikasi jelas.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-light-outline-variant hover:border-caramel transition-colors shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-light-primary-container text-light-primary flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-[26px]">chair</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Suasana Nyaman</h3>
+            <p class="text-body-sm text-light-on-surface-variant leading-relaxed">
+              Tata ruang ergonomis, koneksi internet berkecepatan tinggi, dan musik latar akustik yang menenangkan.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-light-outline-variant hover:border-caramel transition-colors shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-light-primary-container text-light-primary flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-[26px]">precision_manufacturing</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Penyeduhan Presisi</h3>
+            <p class="text-body-sm text-light-on-surface-variant leading-relaxed">
+              Kalibrasi suhu air, rasio gilingan, dan waktu ekstraksi dilakukan ketat pada setiap cangkir yang disajikan.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white rounded-xl border border-light-outline-variant hover:border-caramel transition-colors shadow-sm">
+            <div class="w-12 h-12 rounded-lg bg-light-primary-container text-light-primary flex items-center justify-center mb-5">
+              <span class="material-symbols-outlined text-[26px]">sentiment_satisfied</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Layanan Ramah</h3>
+            <p class="text-body-sm text-light-on-surface-variant leading-relaxed">
+              Barista kami siap berbagi cerita rasa serta merekomendasikan profil seduhan yang tepat sesuai selera Anda.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Latest Articles Preview -->
+    <section class="py-20 bg-light-surface-variant/40 border-t border-light-outline-variant">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Kabar &amp; Wawasan</span>
+            <h2 class="font-headline text-headline-lg text-light-primary font-bold mt-1">Artikel Terbaru</h2>
+          </div>
+          <button onclick="switchTab(&#39;artikel&#39;)" class="inline-flex items-center gap-2 text-label-lg font-label text-light-primary hover:text-caramel transition-colors">
+            <span>Kunjungi Halaman Artikel</span>
+            <span class="material-symbols-outlined text-[18px]">east</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Article 1 -->
+          <article class="bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm hover:border-caramel transition-colors flex flex-col group">
+            <div class="h-48 overflow-hidden bg-light-surface-variant">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdRWupq9c0mGwdTZ68KK0L13gK79FZMXlpDTErkcGjPBlOvtQ4DGQH9G7Z6fojGCTTPTxBJOqnJjB6ndJHIYfBQ0ygZNru78GBLk8UOC2QXirA7FkpwGL5HnP2iDwnrakqvXl6nSOKV7GrktquTCpKNBrnidDL7Tt-SZQNJnEJOthRi9F6PjwVU47Z2e438nUOr_xriu8WMj48fh-Pbx2ZVtpiz9uo6GBIOV1LY3sIkYIDs5H-WkGjPVb04WIi" alt="Biji Kopi Indonesia" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 text-label-sm text-caramel font-label mb-2">
+                <span>Eksplorasi Asal Biji</span>
+                <span>•</span>
+                <span class="text-light-on-surface-variant">14 Nov 2026</span>
+              </div>
+              <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-3 group-hover:text-caramel transition-colors">
+                Mengenal Karakteristik Rasa Kopi Single Origin Indonesia
+              </h3>
+              <p class="text-body-sm text-light-on-surface-variant line-clamp-3 mb-4 flex-1">
+                Dari aroma rempah khas Sumatra Mandheling hingga keasaman manis buah plum Bali Kintamani, kenali peta cita rasa kopi Nusantara.
+              </p>
+              <button onclick="openArticleDetail(&#39;Mengenal Karakteristik Rasa Kopi Single Origin Indonesia&#39;)" class="text-label-md font-label text-light-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Baca Selengkapnya
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Article 2 -->
+          <article class="bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm hover:border-caramel transition-colors flex flex-col group">
+            <div class="h-48 overflow-hidden bg-light-surface-variant">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrAAnRziPe0SOuHd3PgcZCgE4gHiztW77wZZw0tIg58_G3Dy0XqiNjenhpWpXrLIVlxajFaazi_3xqjZ2AC8AqAHhzfFu6zoSzZg9RSbsgHXcajhxs07EQEUlgSQ5CTUECHKJTp9cgGzKkJYrLjd0I1K8nVo1F3OShJ9fqV6eHUAqhPGmQkI0LMnGl_vpmngN7VXHv9-GpFx7MQ5aFLLQo7FnIkj0ECjlya9Syu5GwOKm33bJlXupF0YqRo" alt="Panduan Seduh Rumahan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 text-label-sm text-caramel font-label mb-2">
+                <span>Tips Barista</span>
+                <span>•</span>
+                <span class="text-light-on-surface-variant">10 Nov 2026</span>
+              </div>
+              <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-3 group-hover:text-caramel transition-colors">
+                5 Rahasia Menyeduh Kopi Manual V60 Nikmat di Rumah
+              </h3>
+              <p class="text-body-sm text-light-on-surface-variant line-clamp-3 mb-4 flex-1">
+                Suhu air, rasio seduhan, hingga teknik penuangan spiral yang terbukti menghasilkan aroma maksimal tanpa rasa pahit berlebih.
+              </p>
+              <button onclick="openArticleDetail(&#39;5 Rahasia Menyeduh Kopi Manual V60 Nikmat di Rumah&#39;)" class="text-label-md font-label text-light-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Baca Selengkapnya
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+            </div>
+          </article>
+
+          <!-- Article 3 -->
+          <article class="bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm hover:border-caramel transition-colors flex flex-col group">
+            <div class="h-48 overflow-hidden bg-light-surface-variant">
+              <img src="https://lh3.googleusercontent.com/aida/ALJJyrB40TQv1Mk2aIq3MGAMb58hLQSuvFHC7Kj-RR3cmxsrozrsBpjthcqh12GTFUfMauXI-eDp3rpjgfpyNt8Ma37SPaoVXXt4YM6qHLoYjwrJ0FzqHeiMGa3WWJ56ztmegVY36rLsMFhwH5F-HVa1k3D_moFKOo6_QXs9aIko4IGyNrZLeXZj41AEarwp8jBOrVJ9QxFn_UK038Rml3BLIEutSNVmxZP3e8iMx7awGNADaP7WbNxueMALZX4Te24F" alt="Budaya Ngopi Modern" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 text-label-sm text-caramel font-label mb-2">
+                <span>Kultur Kedai</span>
+                <span>•</span>
+                <span class="text-light-on-surface-variant">04 Nov 2026</span>
+              </div>
+              <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-3 group-hover:text-caramel transition-colors">
+                Kopi dan Ruang Kerja: Menemukan Fokus di Kedai Kopi
+              </h3>
+              <p class="text-body-sm text-light-on-surface-variant line-clamp-3 mb-4 flex-1">
+                Mengapa atmosfer ambient cafe sering kali memicu daya kreativitas lebih tinggi dibandingkan bilik kantor konvensional.
+              </p>
+              <button onclick="openArticleDetail(&#39;Kopi dan Ruang Kerja: Menemukan Fokus di Kedai Kopi&#39;)" class="text-label-md font-label text-light-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Baca Selengkapnya
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="py-20 bg-light-surface">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Momen &amp; Ruang</span>
+            <h2 class="font-headline text-headline-lg text-light-primary font-bold mt-1">Galeri Suasana Kedai</h2>
+          </div>
+          <button onclick="switchTab(&#39;galeri&#39;)" class="inline-flex items-center gap-2 text-label-lg font-label text-light-primary hover:text-caramel transition-colors">
+            <span>Lihat Galeri Foto Lengkap</span>
+            <span class="material-symbols-outlined text-[18px]">photo_library</span>
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="relative group overflow-hidden rounded-lg h-56 bg-light-surface-variant cursor-pointer" onclick="switchTab(&#39;galeri&#39;)">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrB40TQv1Mk2aIq3MGAMb58hLQSuvFHC7Kj-RR3cmxsrozrsBpjthcqh12GTFUfMauXI-eDp3rpjgfpyNt8Ma37SPaoVXXt4YM6qHLoYjwrJ0FzqHeiMGa3WWJ56ztmegVY36rLsMFhwH5F-HVa1k3D_moFKOo6_QXs9aIko4IGyNrZLeXZj41AEarwp8jBOrVJ9QxFn_UK038Rml3BLIEutSNVmxZP3e8iMx7awGNADaP7WbNxueMALZX4Te24F" alt="Interior Cafe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            <div class="absolute inset-0 bg-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-[28px]">zoom_in</span>
+            </div>
+          </div>
+          <div class="relative group overflow-hidden rounded-lg h-56 bg-light-surface-variant cursor-pointer" onclick="switchTab(&#39;galeri&#39;)">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAaizU2EuwDJ0woXO269zRRDcdSD2KABWyUxbMsjKBOhNYdFoLaJOqaH9ISoLblka-zw6DYjB46MmOsikRPARVkdIC8kGLyvXn6E7yEbiF1LwdYdgNC61VBLUGm9yriDQXBii9hmCOVfJ2ouUlemmzJnLedcRdn_qYsSRUe6yshKDEF5B5CmC6J-4fDUm6H4GdlKtfcAdZx-f5q5Zs2l3Qrns-B6hHYzADCuHRAwRO9y2qMsXkuuOaLITH1gGymC3c8" alt="Barista Pouring" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            <div class="absolute inset-0 bg-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-[28px]">zoom_in</span>
+            </div>
+          </div>
+          <div class="relative group overflow-hidden rounded-lg h-56 bg-light-surface-variant cursor-pointer" onclick="switchTab(&#39;galeri&#39;)">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdwtM-zTMGuX_IVcHsguNcK2zKo9gGNi2ofJCHMMAKcmISTJLIqPFMc0Xm-K6yy31YNZxqUeSbOxJm8EUQfF0LeJw3qJUGHxbmGF9WvOyDfXgbcOetiR0uY9yMin74a_0MzJVEonK5P1gj1O_EJROKAX__nxx7901CJ40ae3BiJCVSp5FZ6KS9YzQ_IN2J3LcDEOgeqVv7JY4J8CTaAUHRXYYHXvb4fCGx4gCZU0hfaqSwKqTqOCJ-4_kVufQ" alt="Roasting Craft" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            <div class="absolute inset-0 bg-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-[28px]">zoom_in</span>
+            </div>
+          </div>
+          <div class="relative group overflow-hidden rounded-lg h-56 bg-light-surface-variant cursor-pointer" onclick="switchTab(&#39;galeri&#39;)">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrB7z_kxlF6E6P60gBgio5UEippaz_sY_s6eL2F0YmZwiQ-2gLvo46ZjuS3Sw4Uo3qP-erae_U3myHSJn8DkIsAn_SuAPG59tzrIfuabvPu_zDPhO6cgHFssifjtQRax-nd_WPO4yS4B6QSal9bgI06r8fck_GNNwu2_ap0XGDQC-RKIJXSqqOVnoTi06CaKgxyDpG_UCGW2eipYQUC2CAHQx9Sln2_mF54BBuAgCT5hU29Fr_33KfaIGH5zTwNDEIdD" alt="Beverage Craft" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+            <div class="absolute inset-0 bg-espresso/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+              <span class="material-symbols-outlined text-[28px]">zoom_in</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Opening Hours -->
+    <section class="py-20 bg-espresso text-cream">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Kunjungi Kami</span>
+          <h2 class="font-headline text-headline-lg font-bold text-white">Lokasi &amp; Jam Operasional</h2>
+          <p class="text-body-lg text-cream/80 leading-relaxed">
+            Terletak di kawasan rindang yang mudah dijangkau, dengan area parkir memadai serta area duduk indoor bebas asap rokok dan outdoor terbuka.
+          </p>
+
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-DEFAULT bg-caramel/20 text-caramel flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[22px]">location_on</span>
+              </div>
+              <div>
+                <p class="font-label text-label-md text-white font-semibold">Alamat Kedai</p>
+                <p class="text-body-md text-cream/70">Jl. Senopati Raya No. 42, Kebayoran Baru, Jakarta Selatan, 12190</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-DEFAULT bg-caramel/20 text-caramel flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[22px]">schedule</span>
+              </div>
+              <div>
+                <p class="font-label text-label-md text-white font-semibold">Waktu Operasional</p>
+                <p class="text-body-md text-cream/70">Senin – Jumat: 08:00 – 22:00 WIB</p>
+                <p class="text-body-md text-cream/70">Sabtu – Minggu: 07:00 – 23:00 WIB</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-DEFAULT bg-caramel/20 text-caramel flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[22px]">call</span>
+              </div>
+              <div>
+                <p class="font-label text-label-md text-white font-semibold">Kontak Reservasi &amp; Info</p>
+                <p class="text-body-md text-cream/70">+62 21 555 7890 • halo@coffeeshop-brand.id</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Placeholder Graphic -->
+        <div class="lg:col-span-6 bg-[#271914] border border-[#4D362C] rounded-xl p-8 flex flex-col items-center justify-center min-h-[340px] text-center relative overflow-hidden">
+          <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#B98255_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          <div class="relative z-10 flex flex-col items-center max-w-sm">
+            <div class="w-16 h-16 rounded-full bg-caramel/20 text-caramel flex items-center justify-center mb-4 ring-8 ring-caramel/10">
+              <span class="material-symbols-outlined text-[32px]">map</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-white font-bold mb-2">Peta Interaktif Lokasi</h3>
+            <p class="text-body-sm text-cream/70 mb-6">
+              Terintegrasi langsung dengan koordinat Google Maps dan Waze untuk petunjuk rute mudah.
+            </p>
+            <button onclick="switchTab(&#39;kontak&#39;)" class="px-6 py-2.5 bg-caramel hover:bg-[#A37046] text-white font-label text-label-md rounded-DEFAULT transition-colors">
+              Buka Panduan Arah
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- TAB 2: ABOUT US (TENTANG KAMI) -->
+  <!-- ======================================================== -->
+  <section id="tab-tentang" class="page-tab hidden py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Breadcrumb & Header -->
+      <div class="max-w-3xl mb-16">
+        <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Profil Perusahaan</span>
+        <h1 class="font-headline text-display-md text-light-primary font-bold mt-2 mb-4">
+          Menyemai Rasa, Menghubungkan Cerita
+        </h1>
+        <p class="text-body-lg text-light-on-surface-variant leading-relaxed">
+          Kisah kami bermula dari kerinduan akan cangkir kopi yang jujur: menghargai jerih payah petani lokal, diolah dengan ketelitian sains sangrai, dan disajikan dalam suasana penuh kehangatan.
+        </p>
+      </div>
+
+      <!-- Alternating Section 1: Brand Story -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24">
+        <div class="lg:col-span-6 space-y-5">
+          <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Perjalanan Awal</span>
+          <h2 class="font-headline text-headline-lg text-light-primary font-bold">Lahir dari Perjalanan ke Pelosok Perkebunan</h2>
+          <p class="text-body-md text-light-on-surface-variant leading-relaxed">
+            Didirikan pada tahun 2021 sebagai roastery independen kecil, kami menjelajahi lereng-lereng gunung berapi Nusantara untuk menyaksikan langsung bagaimana tanah vulkanik, naungan pohon peneduh, dan iklim mikro membentuk keunikan asam manis buah kopi.
+          </p>
+          <p class="text-body-md text-light-on-surface-variant leading-relaxed">
+            Kami meyakini bahwa secangkir kopi istimewa bukan sekadar minuman penghalau kantuk, melainkan hasil karya rantai nilai panjang yang patut dirayakan bersama.
+          </p>
+        </div>
+        <div class="lg:col-span-6">
+          <div class="rounded-xl overflow-hidden shadow-md border border-light-outline-variant">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdwtM-zTMGuX_IVcHsguNcK2zKo9gGNi2ofJCHMMAKcmISTJLIqPFMc0Xm-K6yy31YNZxqUeSbOxJm8EUQfF0LeJw3qJUGHxbmGF9WvOyDfXgbcOetiR0uY9yMin74a_0MzJVEonK5P1gj1O_EJROKAX__nxx7901CJ40ae3BiJCVSp5FZ6KS9YzQ_IN2J3LcDEOgeqVv7JY4J8CTaAUHRXYYHXvb4fCGx4gCZU0hfaqSwKqTqOCJ-4_kVufQ" alt="Sangrai Kopi" class="w-full h-[380px] object-cover">
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision & Mission -->
+      <div class="bg-light-primary-container p-10 lg:p-14 rounded-2xl border border-light-outline mb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded bg-light-primary text-light-on-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-[24px]">visibility</span>
+            </div>
+            <h3 class="font-headline text-headline-md text-light-primary font-bold">Visi Kami</h3>
+            <p class="text-body-md text-light-on-surface-variant leading-relaxed">
+              Menjadi pionir kedai kopi spesialti yang mengangkat martabat komoditas kopi Indonesia ke tingkat standar internasional melalui transparansi rantai pasok dan keunggulan rasa yang konsisten.
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded bg-caramel text-white flex items-center justify-center">
+              <span class="material-symbols-outlined text-[24px]">flag</span>
+            </div>
+            <h3 class="font-headline text-headline-md text-light-primary font-bold">Misi Kami</h3>
+            <ul class="text-body-md text-light-on-surface-variant space-y-2.5">
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-caramel text-[20px] mt-0.5">check_circle</span>
+                <span>Membina kemitraan langsung dan adil dengan petani lokal (*direct trade*).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-caramel text-[20px] mt-0.5">check_circle</span>
+                <span>Menghadirkan profil sangrai presisi yang mengekspresikan karakter alami biji kopi.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="material-symbols-outlined text-caramel text-[20px] mt-0.5">check_circle</span>
+                <span>Menyediakan wadah sosial yang hangat, inklusif, dan ramah lingkungan.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alternating Section 2: Atmosphere & Values -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+        <div class="lg:col-span-6 order-2 lg:order-1">
+          <div class="rounded-xl overflow-hidden shadow-md border border-light-outline-variant">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrB40TQv1Mk2aIq3MGAMb58hLQSuvFHC7Kj-RR3cmxsrozrsBpjthcqh12GTFUfMauXI-eDp3rpjgfpyNt8Ma37SPaoVXXt4YM6qHLoYjwrJ0FzqHeiMGa3WWJ56ztmegVY36rLsMFhwH5F-HVa1k3D_moFKOo6_QXs9aIko4IGyNrZLeXZj41AEarwp8jBOrVJ9QxFn_UK038Rml3BLIEutSNVmxZP3e8iMx7awGNADaP7WbNxueMALZX4Te24F" alt="Interior Kedai" class="w-full h-[380px] object-cover">
+          </div>
+        </div>
+        <div class="lg:col-span-6 order-1 lg:order-2 space-y-5">
+          <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Nilai &amp; Filosofi</span>
+          <h2 class="font-headline text-headline-lg text-light-primary font-bold">Desain Ruang yang Menenangkan Jiwa</h2>
+          <p class="text-body-md text-light-on-surface-variant leading-relaxed">
+            Setiap sudut kedai kami ditata dengan material alami kayu jati daur ulang, bata ekspos hangat, serta tanaman hijau indoor yang menyegarkan pandangan.
+          </p>
+          <p class="text-body-md text-light-on-surface-variant leading-relaxed">
+            Baik Anda datang untuk menyelesaikan proyek kreatif, membaca buku favorit, atau sekadar bertukar kabar bersama sahabat karib, kami memastikan Anda merasa disambut layaknya di rumah sendiri.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- TAB 3: MENU (KATALOG PRODUK LENGKAP) -->
+  <!-- ======================================================== -->
+  <section id="tab-menu" class="page-tab hidden py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Katalog Sajian</span>
+        <h1 class="font-headline text-display-md text-light-primary font-bold mt-2">Daftar Menu &amp; Racikan</h1>
+        <p class="text-body-md text-light-on-surface-variant mt-2">
+          Seluruh sajian diracik segar menggunakan bahan baku berkualitas prima dengan standar kalibrasi harian.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <button onclick="filterMenu(&#39;all&#39;)" class="menu-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-light-primary text-light-on-primary transition-all">Semua Kategori</button>
+        <button onclick="filterMenu(&#39;espresso&#39;)" class="menu-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-white border border-light-outline text-light-on-surface-variant hover:border-caramel hover:text-caramel transition-all">Espresso Based</button>
+        <button onclick="filterMenu(&#39;manual&#39;)" class="menu-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-white border border-light-outline text-light-on-surface-variant hover:border-caramel hover:text-caramel transition-all">Manual Brew</button>
+        <button onclick="filterMenu(&#39;signature&#39;)" class="menu-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-white border border-light-outline text-light-on-surface-variant hover:border-caramel hover:text-caramel transition-all">Signature Drinks</button>
+        <button onclick="filterMenu(&#39;non-coffee&#39;)" class="menu-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-white border border-light-outline text-light-on-surface-variant hover:border-caramel hover:text-caramel transition-all">Non-Coffee</button>
+        <button onclick="filterMenu(&#39;food&#39;)" class="menu-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-white border border-light-outline text-light-on-surface-variant hover:border-caramel hover:text-caramel transition-all">Food &amp; Snacks</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Item 1: Espresso -->
+        <article class="menu-item bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col" data-category="espresso">
+          <div class="h-52 bg-light-surface-variant overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrB3W1kWCy1P7Nyg4oWuxNq3yCvnpkjRYlS3GtJsRuVAhcXmMnD6GxxF8ToJrprTitvsaQfk3JusLmtWHGOM06FOewRW47rqqweV2WOLDLVWkOke2UdXZ6VyTmiYUXSAS1gDjnTvcppEMdsAY058u3EDLHGdjtFWrdqFl8-P88V5hPjwsR85W60aIi-xk01aKeHaodiNjOBs6F6leyRS2qltC0P6qrH9J1ewJXQKG48huUYDrFAbeYhX" alt="Double Espresso" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-label-sm font-label px-2.5 py-0.5 rounded-full bg-light-surface-variant text-light-primary">Espresso Based</span>
+              <span class="font-title text-title-md font-semibold text-caramel tabular-nums">Rp 28.000</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Single Origin Espresso</h3>
+            <p class="text-body-sm text-light-on-surface-variant line-clamp-2 mb-4 flex-1">
+              Ekstraksi ganda biji kopi Arabika Gayo beraroma kakao pekat dengan sentuhan karamel alami.
+            </p>
+            <div class="pt-3 border-t border-light-outline-variant text-label-sm text-light-success font-label flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">check_circle</span> Tersedia Hari Ini
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 2: Flat White -->
+        <article class="menu-item bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col" data-category="espresso">
+          <div class="h-52 bg-light-surface-variant overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAaizU2EuwDJ0woXO269zRRDcdSD2KABWyUxbMsjKBOhNYdFoLaJOqaH9ISoLblka-zw6DYjB46MmOsikRPARVkdIC8kGLyvXn6E7yEbiF1LwdYdgNC61VBLUGm9yriDQXBii9hmCOVfJ2ouUlemmzJnLedcRdn_qYsSRUe6yshKDEF5B5CmC6J-4fDUm6H4GdlKtfcAdZx-f5q5Zs2l3Qrns-B6hHYzADCuHRAwRO9y2qMsXkuuOaLITH1gGymC3c8" alt="Artisanal Flat White" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-label-sm font-label px-2.5 py-0.5 rounded-full bg-light-surface-variant text-light-primary">Espresso Based</span>
+              <span class="font-title text-title-md font-semibold text-caramel tabular-nums">Rp 35.000</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Artisanal Flat White</h3>
+            <p class="text-body-sm text-light-on-surface-variant line-clamp-2 mb-4 flex-1">
+              Double ristretto berpadu dengan susu microfoam lembut bersuhu ideal 62°C untuk rasa manis alami.
+            </p>
+            <div class="pt-3 border-t border-light-outline-variant text-label-sm text-light-success font-label flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">check_circle</span> Tersedia Hari Ini
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 3: Manual Brew V60 -->
+        <article class="menu-item bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col" data-category="manual">
+          <div class="h-52 bg-light-surface-variant overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAAnRziPe0SOuHd3PgcZCgE4gHiztW77wZZw0tIg58_G3Dy0XqiNjenhpWpXrLIVlxajFaazi_3xqjZ2AC8AqAHhzfFu6zoSzZg9RSbsgHXcajhxs07EQEUlgSQ5CTUECHKJTp9cgGzKkJYrLjd0I1K8nVo1F3OShJ9fqV6eHUAqhPGmQkI0LMnGl_vpmngN7VXHv9-GpFx7MQ5aFLLQo7FnIkj0ECjlya9Syu5GwOKm33bJlXupF0YqRo" alt="Manual Brew V60" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-label-sm font-label px-2.5 py-0.5 rounded-full bg-light-surface-variant text-light-primary">Manual Brew</span>
+              <span class="font-title text-title-md font-semibold text-caramel tabular-nums">Rp 38.000</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">V60 Pour Over Flores Bajawa</h3>
+            <p class="text-body-sm text-light-on-surface-variant line-clamp-2 mb-4 flex-1">
+              Karakter seduhan bersih dengan aroma bunga melati, keasaman manis apel hijau, dan aftertaste panjang.
+            </p>
+            <div class="pt-3 border-t border-light-outline-variant text-label-sm text-light-success font-label flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">check_circle</span> Tersedia Hari Ini
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 4: Japanese Iced Drip -->
+        <article class="menu-item bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col" data-category="manual">
+          <div class="h-52 bg-light-surface-variant overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAAnRziPe0SOuHd3PgcZCgE4gHiztW77wZZw0tIg58_G3Dy0XqiNjenhpWpXrLIVlxajFaazi_3xqjZ2AC8AqAHhzfFu6zoSzZg9RSbsgHXcajhxs07EQEUlgSQ5CTUECHKJTp9cgGzKkJYrLjd0I1K8nVo1F3OShJ9fqV6eHUAqhPGmQkI0LMnGl_vpmngN7VXHv9-GpFx7MQ5aFLLQo7FnIkj0ECjlya9Syu5GwOKm33bJlXupF0YqRo" alt="Japanese Iced Drip" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-label-sm font-label px-2.5 py-0.5 rounded-full bg-light-surface-variant text-light-primary">Manual Brew</span>
+              <span class="font-title text-title-md font-semibold text-caramel tabular-nums">Rp 40.000</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Japanese Iced Coffee Ijen</h3>
+            <p class="text-body-sm text-light-on-surface-variant line-clamp-2 mb-4 flex-1">
+              Diseduh langsung di atas es batu kristal untuk mengunci aroma floral dan kesegaran buah peach.
+            </p>
+            <div class="pt-3 border-t border-light-outline-variant text-label-sm text-light-success font-label flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">check_circle</span> Tersedia Hari Ini
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 5: Signature Sea Salt Caramel -->
+        <article class="menu-item bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col" data-category="signature">
+          <div class="h-52 bg-light-surface-variant overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrB7z_kxlF6E6P60gBgio5UEippaz_sY_s6eL2F0YmZwiQ-2gLvo46ZjuS3Sw4Uo3qP-erae_U3myHSJn8DkIsAn_SuAPG59tzrIfuabvPu_zDPhO6cgHFssifjtQRax-nd_WPO4yS4B6QSal9bgI06r8fck_GNNwu2_ap0XGDQC-RKIJXSqqOVnoTi06CaKgxyDpG_UCGW2eipYQUC2CAHQx9Sln2_mF54BBuAgCT5hU29Fr_33KfaIGH5zTwNDEIdD" alt="Sea Salt Caramel Latte" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-label-sm font-label px-2.5 py-0.5 rounded-full bg-light-surface-variant text-light-primary">Signature Drinks</span>
+              <span class="font-title text-title-md font-semibold text-caramel tabular-nums">Rp 38.000</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Sea Salt Caramel Latte</h3>
+            <p class="text-body-sm text-light-on-surface-variant line-clamp-2 mb-4 flex-1">
+              Karamel bakar resep rumahan dipadu espresso pekat dan sensasi gurih garam kristal laut Kusamba.
+            </p>
+            <div class="pt-3 border-t border-light-outline-variant text-label-sm text-light-success font-label flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">stars</span> Best Seller
+            </div>
+          </div>
+        </article>
+
+        <!-- Item 6: Artisan Croissant -->
+        <article class="menu-item bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col" data-category="food">
+          <div class="h-52 bg-light-surface-variant overflow-hidden">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCvjV734r20t4cyCWtWs1JdMQ6aGcQ896mleLazUxYhoG2db9gGckDjz3akU3Dc6SRULPP22oxcxUfwJMvzoQK1m2BUohP51w0D7yRJ_mJ_eTmN_T4KXIMI5EC4vxVLnQpFf6Vqp9M1QJHATozCFeCKS9oMczqquun1NFcrJXJ3iqEj-t_9Ho5TWKWrbgGh5cROFsJY7KAmWTUCV9RtD7iZAH4dLFs9QkG8LTXYN3aEJ32Ftx-vZt5dq_xCDsYeRrU" alt="Golden Butter Croissant" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5 flex flex-col flex-1">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-label-sm font-label px-2.5 py-0.5 rounded-full bg-light-surface-variant text-light-primary">Food &amp; Snacks</span>
+              <span class="font-title text-title-md font-semibold text-caramel tabular-nums">Rp 30.000</span>
+            </div>
+            <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Golden Butter Croissant</h3>
+            <p class="text-body-sm text-light-on-surface-variant line-clamp-2 mb-4 flex-1">
+              Pastry renyah berlapis mentega Prancis dengan tekstur sarang lebah lembut di bagian dalam.
+            </p>
+            <div class="pt-3 border-t border-light-outline-variant text-label-sm text-light-success font-label flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px]">check_circle</span> Dipanggang Segar
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- TAB 4: ARTICLES / NEWS (ARTIKEL) -->
+  <!-- ======================================================== -->
+  <section id="tab-artikel" class="page-tab hidden py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="max-w-2xl">
+          <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Blog &amp; Edukasi</span>
+          <h1 class="font-headline text-display-md text-light-primary font-bold mt-2">Artikel &amp; Cerita Rasa</h1>
+          <p class="text-body-md text-light-on-surface-variant mt-2">
+            Pelajari teknik penyeduhan, wawasan asal-usul komoditas kopi, dan kabar terkini dari roastery kami.
+          </p>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="w-full md:w-80">
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-light-on-surface-variant text-[20px]">search</span>
+            <input type="text" id="article-search" onkeyup="searchArticles()" placeholder="Cari topik artikel..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-light-outline rounded-DEFAULT text-body-md focus:border-light-primary focus:ring-1 focus:ring-light-primary outline-none">
+          </div>
+        </div>
+      </div>
+
+      <!-- Articles Grid -->
+      <div id="articles-list" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Article Card 1 -->
+        <article class="article-card bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col group">
+          <div class="h-48 overflow-hidden bg-light-surface-variant">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdRWupq9c0mGwdTZ68KK0L13gK79FZMXlpDTErkcGjPBlOvtQ4DGQH9G7Z6fojGCTTPTxBJOqnJjB6ndJHIYfBQ0ygZNru78GBLk8UOC2QXirA7FkpwGL5HnP2iDwnrakqvXl6nSOKV7GrktquTCpKNBrnidDL7Tt-SZQNJnEJOthRi9F6PjwVU47Z2e438nUOr_xriu8WMj48fh-Pbx2ZVtpiz9uo6GBIOV1LY3sIkYIDs5H-WkGjPVb04WIi" alt="Asal Usul Biji Kopi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 text-label-sm text-caramel font-label mb-2">
+              <span>Asal Biji</span>
+              <span>•</span>
+              <span class="text-light-on-surface-variant">14 Nov 2026</span>
+            </div>
+            <h2 class="font-headline text-headline-sm text-light-primary font-bold mb-3 group-hover:text-caramel transition-colors">
+              Mengenal Karakteristik Rasa Kopi Single Origin Indonesia
+            </h2>
+            <p class="text-body-sm text-light-on-surface-variant line-clamp-3 mb-4 flex-1">
+              Menelusuri keunikan notes floral dari Toraja hingga keasaman segar buah-buahan dari lereng Gunung Ijen Jawa Timur.
+            </p>
+            <button onclick="openArticleDetail(&#39;Mengenal Karakteristik Rasa Kopi Single Origin Indonesia&#39;)" class="text-label-md font-label text-light-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Baca Artikel Lengkap
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article Card 2 -->
+        <article class="article-card bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col group">
+          <div class="h-48 overflow-hidden bg-light-surface-variant">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrAAnRziPe0SOuHd3PgcZCgE4gHiztW77wZZw0tIg58_G3Dy0XqiNjenhpWpXrLIVlxajFaazi_3xqjZ2AC8AqAHhzfFu6zoSzZg9RSbsgHXcajhxs07EQEUlgSQ5CTUECHKJTp9cgGzKkJYrLjd0I1K8nVo1F3OShJ9fqV6eHUAqhPGmQkI0LMnGl_vpmngN7VXHv9-GpFx7MQ5aFLLQo7FnIkj0ECjlya9Syu5GwOKm33bJlXupF0YqRo" alt="Panduan Seduh V60" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 text-label-sm text-caramel font-label mb-2">
+              <span>Panduan Seduh</span>
+              <span>•</span>
+              <span class="text-light-on-surface-variant">10 Nov 2026</span>
+            </div>
+            <h2 class="font-headline text-headline-sm text-light-primary font-bold mb-3 group-hover:text-caramel transition-colors">
+              5 Rahasia Menyeduh Kopi Manual V60 Nikmat di Rumah
+            </h2>
+            <p class="text-body-sm text-light-on-surface-variant line-clamp-3 mb-4 flex-1">
+              Tips praktis mengatur suhu air, rasio gilingan medium, serta ritme penuangan air agar cangkir kopi Anda tidak pahit.
+            </p>
+            <button onclick="openArticleDetail(&#39;5 Rahasia Menyeduh Kopi Manual V60 Nikmat di Rumah&#39;)" class="text-label-md font-label text-light-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Baca Artikel Lengkap
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- Article Card 3 -->
+        <article class="article-card bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col group">
+          <div class="h-48 overflow-hidden bg-light-surface-variant">
+            <img src="https://lh3.googleusercontent.com/aida/ALJJyrB40TQv1Mk2aIq3MGAMb58hLQSuvFHC7Kj-RR3cmxsrozrsBpjthcqh12GTFUfMauXI-eDp3rpjgfpyNt8Ma37SPaoVXXt4YM6qHLoYjwrJ0FzqHeiMGa3WWJ56ztmegVY36rLsMFhwH5F-HVa1k3D_moFKOo6_QXs9aIko4IGyNrZLeXZj41AEarwp8jBOrVJ9QxFn_UK038Rml3BLIEutSNVmxZP3e8iMx7awGNADaP7WbNxueMALZX4Te24F" alt="Ruang Kerja &amp; Cafe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <div class="flex items-center gap-2 text-label-sm text-caramel font-label mb-2">
+              <span>Lifestyle</span>
+              <span>•</span>
+              <span class="text-light-on-surface-variant">04 Nov 2026</span>
+            </div>
+            <h2 class="font-headline text-headline-sm text-light-primary font-bold mb-3 group-hover:text-caramel transition-colors">
+              Kopi dan Ruang Kerja: Menemukan Fokus di Kedai Kopi
+            </h2>
+            <p class="text-body-sm text-light-on-surface-variant line-clamp-3 mb-4 flex-1">
+              Mengapa atmosfer kedai kopi modern mampu meningkatkan fokus mental dan daya cipta para pekerja kreatif digital.
+            </p>
+            <button onclick="openArticleDetail(&#39;Kopi dan Ruang Kerja: Menemukan Fokus di Kedai Kopi&#39;)" class="text-label-md font-label text-light-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Baca Artikel Lengkap
+              <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex items-center justify-center gap-2 pt-6 border-t border-light-outline-variant">
+        <button class="px-3 py-1.5 border border-light-outline rounded text-body-sm text-light-on-surface-variant hover:border-light-primary hover:text-light-primary transition-colors">
+          Sebelumnya
+        </button>
+        <button class="px-3.5 py-1.5 bg-light-primary text-light-on-primary rounded text-body-sm font-semibold">1</button>
+        <button class="px-3.5 py-1.5 border border-light-outline rounded text-body-sm hover:border-light-primary transition-colors">2</button>
+        <button class="px-3 py-1.5 border border-light-outline rounded text-body-sm text-light-on-surface-variant hover:border-light-primary hover:text-light-primary transition-colors">
+          Selanjutnya
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- TAB 4B: ARTICLE DETAIL MODAL / VIEW -->
+  <!-- ======================================================== -->
+  <section id="article-detail-view" class="hidden py-16 bg-white border-y border-light-outline-variant">
+    <div class="max-w-4xl mx-auto px-6">
+      <button onclick="closeArticleDetail()" class="inline-flex items-center gap-1.5 text-label-md font-label text-light-primary hover:text-caramel mb-8 transition-colors">
+        <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+        <span>Kembali ke Daftar Artikel</span>
+      </button>
+
+      <div class="space-y-4 mb-8">
+        <div class="flex items-center gap-3 text-label-sm text-caramel font-label">
+          <span class="px-3 py-1 rounded-full bg-light-surface-variant text-light-primary">Asal Biji &amp; Edukasi</span>
+          <span>•</span>
+          <span class="text-light-on-surface-variant">Dipublikasikan 14 November 2026 oleh Kepala Roaster</span>
+        </div>
+        <h1 id="detail-title" class="font-headline text-display-md text-light-primary font-bold leading-tight">
+          Mengenal Karakteristik Rasa Kopi Single Origin Indonesia
+        </h1>
+      </div>
+
+      <div class="rounded-xl overflow-hidden mb-10 shadow-md">
+        <img id="detail-image" src="https://lh3.googleusercontent.com/aida/ALJJyrCdRWupq9c0mGwdTZ68KK0L13gK79FZMXlpDTErkcGjPBlOvtQ4DGQH9G7Z6fojGCTTPTxBJOqnJjB6ndJHIYfBQ0ygZNru78GBLk8UOC2QXirA7FkpwGL5HnP2iDwnrakqvXl6nSOKV7GrktquTCpKNBrnidDL7Tt-SZQNJnEJOthRi9F6PjwVU47Z2e438nUOr_xriu8WMj48fh-Pbx2ZVtpiz9uo6GBIOV1LY3sIkYIDs5H-WkGjPVb04WIi" alt="Detail Artikel" class="w-full h-[440px] object-cover">
+      </div>
+
+      <div class="prose max-w-none text-body-lg text-light-on-surface leading-relaxed space-y-6">
+        <p>
+          Indonesia merupakan salah satu negara penghasil kopi paling beragam di dunia. Terbentang di sepanjang garis khatulistiwa dengan rantai pegunungan vulkanik yang subur, setiap pulau melahirkan biji kopi dengan identitas organoleptik yang sangat spesifik dan memikat.
+        </p>
+        <h2 class="font-headline text-headline-md text-light-primary font-bold mt-8 mb-4">
+          1. Dataran Tinggi Gayo, Aceh: Cokelat Gelap dan Rempah Hangat
+        </h2>
+        <p>
+          Ditanam pada ketinggian 1.200 hingga 1.600 mdpl di sekitar Danau Laut Tawar, kopi Arabika Gayo terkenal dengan bodi yang tebal, keasaman rendah yang nyaman di lambung, serta aroma rempah-rempah manis seperti kapulaga dan kakao pekat.
+        </p>
+        <h2 class="font-headline text-headline-md text-light-primary font-bold mt-8 mb-4">
+          2. Kintamani, Bali: Keasaman Jeruk yang Segar dan Manis
+        </h2>
+        <p>
+          Sistem tumpang sari tradisional Subak Abian di mana tanaman kopi tumbuh berdampingan dengan pohon jeruk purut dan tanaman buah lainnya memberikan karakteristik rasa unik pada kopi Kintamani. Anda akan menemukan keasaman sitrus cerah dengan aftertaste manis gula kelapa.
+        </p>
+        <div class="bg-light-primary-container p-6 rounded-lg border-l-4 border-caramel my-8">
+          <p class="font-headline text-headline-sm text-light-primary font-bold mb-2">Tips Barista:</p>
+          <p class="text-body-md text-light-on-surface-variant">
+            Untuk menikmati kekayaan rasa kopi single origin secara utuh tanpa distorsi rasa, seduhlah menggunakan metode manual filter kertas (V60 atau Chemex) dengan rasio seduh 1:15 pada suhu air 91–93°C.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- TAB 5: GALLERY (GALERI FOTO INTERAKTIF) -->
+  <!-- ======================================================== -->
+  <section id="tab-galeri" class="page-tab hidden py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Dokumentasi Visual</span>
+        <h1 class="font-headline text-display-md text-light-primary font-bold mt-2">Galeri Kehidupan Kedai</h1>
+        <p class="text-body-md text-light-on-surface-variant mt-2">
+          Rekaman visual proses penyeduhan, ruang kedai, hingga kehangatan interaksi para penikmat kopi.
+        </p>
+      </div>
+
+      <!-- Gallery Filter Chips -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+        <button onclick="filterGallery(&#39;all&#39;)" class="gal-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-light-primary text-light-on-primary">Semua Foto</button>
+        <button onclick="filterGallery(&#39;coffee&#39;)" class="gal-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-white border border-light-outline text-light-on-surface-variant hover:border-caramel hover:text-caramel">Kopi &amp; Minuman</button>
+        <button onclick="filterGallery(&#39;interior&#39;)" class="gal-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-white border border-light-outline text-light-on-surface-variant hover:border-caramel hover:text-caramel">Ruang &amp; Interior</button>
+        <button onclick="filterGallery(&#39;brewing&#39;)" class="gal-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-white border border-light-outline text-light-on-surface-variant hover:border-caramel hover:text-caramel">Aktivitas Sangrai</button>
+        <button onclick="filterGallery(&#39;pastry&#39;)" class="gal-filter-btn px-5 py-2 rounded-full font-label text-label-md bg-white border border-light-outline text-light-on-surface-variant hover:border-caramel hover:text-caramel">Pastry &amp; Makanan</button>
+      </div>
+
+      <!-- Gallery Grid with Lightbox Trigger -->
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="gallery-item group relative rounded-lg overflow-hidden h-72 bg-light-surface-variant cursor-pointer" data-category="interior" onclick="openLightbox(&#39;../../images/cafe_interior_lounge.jpg&#39;, &#39;Ruang Santai &amp; Tempat Duduk Kayu Jati&#39;)">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrB40TQv1Mk2aIq3MGAMb58hLQSuvFHC7Kj-RR3cmxsrozrsBpjthcqh12GTFUfMauXI-eDp3rpjgfpyNt8Ma37SPaoVXXt4YM6qHLoYjwrJ0FzqHeiMGa3WWJ56ztmegVY36rLsMFhwH5F-HVa1k3D_moFKOo6_QXs9aIko4IGyNrZLeXZj41AEarwp8jBOrVJ9QxFn_UK038Rml3BLIEutSNVmxZP3e8iMx7awGNADaP7WbNxueMALZX4Te24F" alt="Interior Lounge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+          <div class="absolute inset-0 bg-espresso/40 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+            <span class="text-label-sm text-caramel font-label">Interior &amp; Ruang</span>
+            <p class="font-headline text-headline-sm font-bold">Ruang Santai &amp; Meja Kerja Kayu Jati</p>
+          </div>
+        </div>
+
+        <div class="gallery-item group relative rounded-lg overflow-hidden h-72 bg-light-surface-variant cursor-pointer" data-category="brewing" onclick="openLightbox(&#39;../../images/hero_coffee_atmosphere.jpg&#39;, &#39;Presisi Ekstraksi Latte Art&#39;)">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrAaizU2EuwDJ0woXO269zRRDcdSD2KABWyUxbMsjKBOhNYdFoLaJOqaH9ISoLblka-zw6DYjB46MmOsikRPARVkdIC8kGLyvXn6E7yEbiF1LwdYdgNC61VBLUGm9yriDQXBii9hmCOVfJ2ouUlemmzJnLedcRdn_qYsSRUe6yshKDEF5B5CmC6J-4fDUm6H4GdlKtfcAdZx-f5q5Zs2l3Qrns-B6hHYzADCuHRAwRO9y2qMsXkuuOaLITH1gGymC3c8" alt="Barista Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+          <div class="absolute inset-0 bg-espresso/40 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+            <span class="text-label-sm text-caramel font-label">Aktivitas Barista</span>
+            <p class="font-headline text-headline-sm font-bold">Presisi Ekstraksi Latte Art</p>
+          </div>
+        </div>
+
+        <div class="gallery-item group relative rounded-lg overflow-hidden h-72 bg-light-surface-variant cursor-pointer" data-category="brewing" onclick="openLightbox(&#39;../../images/cafe_roasting_craft.jpg&#39;, &#39;Proses Sangrai Drum Tradisional&#39;)">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdwtM-zTMGuX_IVcHsguNcK2zKo9gGNi2ofJCHMMAKcmISTJLIqPFMc0Xm-K6yy31YNZxqUeSbOxJm8EUQfF0LeJw3qJUGHxbmGF9WvOyDfXgbcOetiR0uY9yMin74a_0MzJVEonK5P1gj1O_EJROKAX__nxx7901CJ40ae3BiJCVSp5FZ6KS9YzQ_IN2J3LcDEOgeqVv7JY4J8CTaAUHRXYYHXvb4fCGx4gCZU0hfaqSwKqTqOCJ-4_kVufQ" alt="Roasting Drum" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+          <div class="absolute inset-0 bg-espresso/40 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+            <span class="text-label-sm text-caramel font-label">Aktivitas Sangrai</span>
+            <p class="font-headline text-headline-sm font-bold">Proses Sangrai Drum Tradisional</p>
+          </div>
+        </div>
+
+        <div class="gallery-item group relative rounded-lg overflow-hidden h-72 bg-light-surface-variant cursor-pointer" data-category="coffee" onclick="openLightbox(&#39;../../images/menu_espresso.jpg&#39;, &#39;Crema Double Espresso Gayo&#39;)">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrB3W1kWCy1P7Nyg4oWuxNq3yCvnpkjRYlS3GtJsRuVAhcXmMnD6GxxF8ToJrprTitvsaQfk3JusLmtWHGOM06FOewRW47rqqweV2WOLDLVWkOke2UdXZ6VyTmiYUXSAS1gDjnTvcppEMdsAY058u3EDLHGdjtFWrdqFl8-P88V5hPjwsR85W60aIi-xk01aKeHaodiNjOBs6F6leyRS2qltC0P6qrH9J1ewJXQKG48huUYDrFAbeYhX" alt="Double Espresso" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+          <div class="absolute inset-0 bg-espresso/40 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+            <span class="text-label-sm text-caramel font-label">Kopi &amp; Minuman</span>
+            <p class="font-headline text-headline-sm font-bold">Crema Double Espresso Gayo</p>
+          </div>
+        </div>
+
+        <div class="gallery-item group relative rounded-lg overflow-hidden h-72 bg-light-surface-variant cursor-pointer" data-category="coffee" onclick="openLightbox(&#39;../../images/menu_signature_caramel.jpg&#39;, &#39;Iced Caramel Macchiato Artisanal&#39;)">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrB7z_kxlF6E6P60gBgio5UEippaz_sY_s6eL2F0YmZwiQ-2gLvo46ZjuS3Sw4Uo3qP-erae_U3myHSJn8DkIsAn_SuAPG59tzrIfuabvPu_zDPhO6cgHFssifjtQRax-nd_WPO4yS4B6QSal9bgI06r8fck_GNNwu2_ap0XGDQC-RKIJXSqqOVnoTi06CaKgxyDpG_UCGW2eipYQUC2CAHQx9Sln2_mF54BBuAgCT5hU29Fr_33KfaIGH5zTwNDEIdD" alt="Signature Caramel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+          <div class="absolute inset-0 bg-espresso/40 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+            <span class="text-label-sm text-caramel font-label">Kopi &amp; Minuman</span>
+            <p class="font-headline text-headline-sm font-bold">Iced Caramel Macchiato Artisanal</p>
+          </div>
+        </div>
+
+        <div class="gallery-item group relative rounded-lg overflow-hidden h-72 bg-light-surface-variant cursor-pointer" data-category="pastry" onclick="openLightbox(&#39;../../images/menu_pastry_croissant.jpg&#39;, &#39;Croissant Panggang Hangat&#39;)">
+          <img src="https://lh3.googleusercontent.com/aida/ALJJyrCvjV734r20t4cyCWtWs1JdMQ6aGcQ896mleLazUxYhoG2db9gGckDjz3akU3Dc6SRULPP22oxcxUfwJMvzoQK1m2BUohP51w0D7yRJ_mJ_eTmN_T4KXIMI5EC4vxVLnQpFf6Vqp9M1QJHATozCFeCKS9oMczqquun1NFcrJXJ3iqEj-t_9Ho5TWKWrbgGh5cROFsJY7KAmWTUCV9RtD7iZAH4dLFs9QkG8LTXYN3aEJ32Ftx-vZt5dq_xCDsYeRrU" alt="Fresh Croissant" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-surface-enter">
+          <div class="absolute inset-0 bg-espresso/40 opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
+            <span class="text-label-sm text-caramel font-label">Pastry &amp; Makanan</span>
+            <p class="font-headline text-headline-sm font-bold">Croissant Mentega Hangat</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Lightbox Modal -->
+  <div id="lightbox-modal" class="hidden fixed inset-0 z-50 bg-black/90 p-6 flex items-center justify-center">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/80 hover:text-white p-2">
+      <span class="material-symbols-outlined text-[32px]">close</span>
+    </button>
+    <div class="max-w-4xl max-h-[870px] flex flex-col items-center" data-stitch-vh="max-h-[870px]===max-h-[85vh]">
+      <img id="lightbox-img" src alt="Pratinjau Foto" class="max-h-[768px] w-auto object-contain rounded-lg mb-3 shadow-2xl" data-stitch-vh="max-h-[768px]===max-h-[75vh]">
+      <p id="lightbox-caption" class="text-cream font-headline text-headline-sm text-center"></p>
+    </div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- TAB 6: CONTACT (KONTAK & FORMULIR) -->
+  <!-- ======================================================== -->
+  <section id="tab-kontak" class="page-tab hidden py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-label-sm font-label text-caramel tracking-widest uppercase">Hubungi Kami</span>
+        <h1 class="font-headline text-display-md text-light-primary font-bold mt-2">Mari Bertegur Sapa</h1>
+        <p class="text-body-md text-light-on-surface-variant mt-2">
+          Punya pertanyaan seputar biji sangrai, reservasi meja kelompok, atau peluang kemitraan acara? Silakan hubungi kami.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Contact Information Column -->
+        <div class="lg:col-span-5 space-y-8 bg-white p-8 rounded-xl border border-light-outline-variant shadow-sm">
+          <h2 class="font-headline text-headline-sm text-light-primary font-bold pb-4 border-b border-light-outline-variant">
+            Informasi Kedai
+          </h2>
+
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded bg-light-primary-container text-light-primary flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[22px]">location_on</span>
+              </div>
+              <div>
+                <p class="font-label text-label-md text-light-primary font-semibold">Alamat</p>
+                <p class="text-body-md text-light-on-surface-variant">Jl. Senopati Raya No. 42, Kebayoran Baru, Jakarta Selatan, 12190</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded bg-light-primary-container text-light-primary flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[22px]">call</span>
+              </div>
+              <div>
+                <p class="font-label text-label-md text-light-primary font-semibold">Telepon &amp; WhatsApp</p>
+                <p class="text-body-md text-light-on-surface-variant">+62 21 555 7890 / +62 812 3456 7890</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded bg-light-primary-container text-light-primary flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[22px]">mail</span>
+              </div>
+              <div>
+                <p class="font-label text-label-md text-light-primary font-semibold">Email Resmi</p>
+                <p class="text-body-md text-light-on-surface-variant">halo@coffeeshop-brand.id</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded bg-light-primary-container text-light-primary flex items-center justify-center flex-shrink-0">
+                <span class="material-symbols-outlined text-[22px]">schedule</span>
+              </div>
+              <div>
+                <p class="font-label text-label-md text-light-primary font-semibold">Waktu Buka</p>
+                <p class="text-body-sm text-light-on-surface-variant">Senin – Jumat: 08:00 – 22:00 WIB</p>
+                <p class="text-body-sm text-light-on-surface-variant">Sabtu – Minggu: 07:00 – 23:00 WIB</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-light-outline-variant">
+            <p class="font-label text-label-sm text-light-primary font-semibold mb-3">Ikuti Jejaring Media Sosial Kami</p>
+            <div class="flex items-center gap-3">
+              <a href="#" class="w-9 h-9 rounded bg-light-surface-variant hover:bg-caramel hover:text-white text-light-primary flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined text-[20px]">share</span>
+              </a>
+              <span class="text-body-sm text-light-on-surface-variant">@yourcoffeebrand.id di Instagram, TikTok, &amp; Facebook</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Column -->
+        <div class="lg:col-span-7 bg-white p-8 lg:p-10 rounded-xl border border-light-outline-variant shadow-sm">
+          <h2 class="font-headline text-headline-sm text-light-primary font-bold mb-2">Kirim Pesan</h2>
+          <p class="text-body-sm text-light-on-surface-variant mb-8">
+            Tim kami akan membalas pesan Anda dalam kurun waktu 1x24 jam kerja.
+          </p>
+
+          <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-light-primary font-medium">Nama Lengkap *</span>
+                <input type="text" required placeholder="Nama Anda" class="w-full px-4 py-2.5 bg-white border border-light-outline rounded-DEFAULT text-body-md focus:border-light-primary focus:ring-1 focus:ring-light-primary outline-none">
+              </label>
+
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-light-primary font-medium">Alamat Email *</span>
+                <input type="email" required placeholder="nama@email.com" class="w-full px-4 py-2.5 bg-white border border-light-outline rounded-DEFAULT text-body-md focus:border-light-primary focus:ring-1 focus:ring-light-primary outline-none">
+              </label>
+            </div>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-light-primary font-medium">Subjek Pesan</span>
+              <input type="text" placeholder="Misal: Reservasi Acara Komunitas / Penawaran Biji Kopi" class="w-full px-4 py-2.5 bg-white border border-light-outline rounded-DEFAULT text-body-md focus:border-light-primary focus:ring-1 focus:ring-light-primary outline-none">
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-light-primary font-medium">Isi Pesan *</span>
+              <textarea rows="5" required placeholder="Tuliskan pesan atau pertanyaan Anda di sini..." class="w-full px-4 py-2.5 bg-white border border-light-outline rounded-DEFAULT text-body-md focus:border-light-primary focus:ring-1 focus:ring-light-primary outline-none resize-none"></textarea>
+            </label>
+
+            <div id="form-success-toast" class="hidden p-4 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 text-body-sm flex items-center gap-2">
+              <span class="material-symbols-outlined text-emerald-600">check_circle</span>
+              <span>Terima kasih! Pesan Anda telah terkirim dan disimpan ke dalam database CMS.</span>
+            </div>
+
+            <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-light-primary hover:bg-[#291B16] text-light-on-primary font-label text-label-md rounded-DEFAULT transition-all shadow-sm flex items-center justify-center gap-2">
+              <span>Kirim Pesan Sekarang</span>
+              <span class="material-symbols-outlined text-[18px]">send</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== -->
+  <!-- FOOTER -->
+  <!-- ======================================================== -->
+  <footer class="bg-espresso text-cream border-t border-[#4D362C]">
+    <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <!-- Col 1: Brand Info -->
+      <div class="lg:col-span-2 space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-DEFAULT bg-caramel text-white flex items-center justify-center font-headline font-bold">CS</div>
+          <span class="font-headline text-headline-sm text-white font-bold">Coffee Shop</span>
+        </div>
+        <p class="text-body-md text-cream/70 max-w-sm leading-relaxed">
+          Kedai kopi kurasi Nusantara yang menyatukan dedikasi petani, keahlian sangrai artisan, dan suasana ruang yang hangat untuk semua kalangan.
+        </p>
+        <p class="text-label-sm text-caramel font-label pt-2">
+          Semua elemen konten dan identitas merek ini dapat diperbarui sewaktu-waktu melalui Admin CMS terintegrasi.
+        </p>
+      </div>
+
+      <!-- Col 2: Navigation Links -->
+      <div class="space-y-3">
+        <p class="font-label text-label-md text-white font-semibold">Tautan Cepat</p>
+        <ul class="space-y-2 text-body-sm text-cream/70">
+          <li><button onclick="switchTab(&#39;beranda&#39;)" class="hover:text-caramel transition-colors">Beranda</button></li>
+          <li><button onclick="switchTab(&#39;tentang&#39;)" class="hover:text-caramel transition-colors">Tentang Kami</button></li>
+          <li><button onclick="switchTab(&#39;menu&#39;)" class="hover:text-caramel transition-colors">Katalog Menu</button></li>
+          <li><button onclick="switchTab(&#39;artikel&#39;)" class="hover:text-caramel transition-colors">Artikel &amp; Berita</button></li>
+          <li><button onclick="switchTab(&#39;galeri&#39;)" class="hover:text-caramel transition-colors">Galeri Foto</button></li>
+          <li><button onclick="switchTab(&#39;kontak&#39;)" class="hover:text-caramel transition-colors">Kontak</button></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Operational Hours -->
+      <div class="space-y-3">
+        <p class="font-label text-label-md text-white font-semibold">Jam Operasional</p>
+        <div class="text-body-sm text-cream/70 space-y-1.5">
+          <p><strong class="text-cream">Senin – Jumat:</strong><br>08:00 – 22:00 WIB</p>
+          <p><strong class="text-cream">Sabtu – Minggu:</strong><br>07:00 – 23:00 WIB</p>
+        </div>
+      </div>
+
+      <!-- Col 4: Contacts & Social -->
+      <div class="space-y-3">
+        <p class="font-label text-label-md text-white font-semibold">Hubungi Kami</p>
+        <div class="text-body-sm text-cream/70 space-y-2">
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-caramel text-[18px]">call</span>
+            +62 21 555 7890
+          </p>
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-caramel text-[18px]">mail</span>
+            halo@coffeeshop-brand.id
+          </p>
+          <p class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-caramel text-[18px]">location_on</span>
+            Jl. Senopati Raya No. 42, Jaksel
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright Sub-footer -->
+    <div class="border-t border-[#4D362C] py-6 px-6 bg-[#271914] text-center text-body-sm text-cream/60">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+        <p>© 2026 Coffee Shop Template. Dikembangkan sebagai demonstrasi proposal website profil dengan sistem CMS terintegrasi.</p>
+        <div class="flex items-center gap-4 text-cream/70">
+          <a href="#" class="hover:text-caramel">Kebijakan Privasi</a>
+          <span>•</span>
+          <a href="#" class="hover:text-caramel">Syarat &amp; Ketentuan</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactivity Scripts -->
+  <script>
+    // Tab switching for single-page preview of all pages
+    function switchTab(tabId) {
+      document.querySelectorAll('.page-tab').forEach(el => el.classList.add('hidden'));
+      document.getElementById('article-detail-view').classList.add('hidden');
+      
+      const target = document.getElementById('tab-' + tabId);
+      if (target) {
+        target.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // Update Nav indicators
+      document.querySelectorAll('.nav-item').forEach(el => {
+        el.classList.remove('text-caramel', 'border-caramel');
+        el.classList.add('text-light-on-surface-variant', 'border-transparent');
+      });
+      const activeNav = document.getElementById('nav-btn-' + tabId);
+      if (activeNav) {
+        activeNav.classList.remove('text-light-on-surface-variant', 'border-transparent');
+        activeNav.classList.add('text-caramel', 'border-caramel');
+      }
+    }
+
+    // Toggle Mobile Navigation Drawer
+    function toggleMobileMenu() {
+      const drawer = document.getElementById('mobile-drawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    // Filter Menu items
+    function filterMenu(category) {
+      document.querySelectorAll('.menu-filter-btn').forEach(btn => {
+        btn.classList.remove('bg-light-primary', 'text-light-on-primary');
+        btn.classList.add('bg-white', 'text-light-on-surface-variant');
+      });
+      event.target.classList.remove('bg-white', 'text-light-on-surface-variant');
+      event.target.classList.add('bg-light-primary', 'text-light-on-primary');
+
+      const items = document.querySelectorAll('.menu-item');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    // Filter Gallery
+    function filterGallery(category) {
+      document.querySelectorAll('.gal-filter-btn').forEach(btn => {
+        btn.classList.remove('bg-light-primary', 'text-light-on-primary');
+        btn.classList.add('bg-white', 'text-light-on-surface-variant');
+      });
+      event.target.classList.remove('bg-white', 'text-light-on-surface-variant');
+      event.target.classList.add('bg-light-primary', 'text-light-on-primary');
+
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    // Lightbox handlers
+    function openLightbox(src, caption) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-caption').innerText = caption;
+      document.getElementById('lightbox-modal').classList.remove('hidden');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox-modal').classList.add('hidden');
+    }
+
+    // Search Articles
+    function searchArticles() {
+      const query = document.getElementById('article-search').value.toLowerCase();
+      const cards = document.querySelectorAll('.article-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if (text.includes(query)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Article detail view
+    function openArticleDetail(title) {
+      document.querySelectorAll('.page-tab').forEach(el => el.classList.add('hidden'));
+      document.getElementById('detail-title').innerText = title;
+      document.getElementById('article-detail-view').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function closeArticleDetail() {
+      document.getElementById('article-detail-view').classList.add('hidden');
+      document.getElementById('tab-artikel').classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Contact Form Demo Submission
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const toast = document.getElementById('form-success-toast');
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        e.target.reset();
+      }, 4000);
+    }
+  </script>
+
+
+</body></html>

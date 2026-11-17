@@ -1,0 +1,1315 @@
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin CMS Dashboard — Coffee Shop Management System</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'espresso': '#38251E',
+        'cream': '#F5F0E8',
+        'caramel': '#B98255',
+        'beige': '#D9C7B5',
+        'charcoal': '#292522',
+        'accent': '#B98255',
+        'light-primary': '#38251E',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#F5F0E8',
+        'light-on-primary-container': '#38251E',
+        'light-secondary': '#B98255',
+        'light-on-secondary': '#272727',
+        'light-secondary-container': '#EFE6DC',
+        'light-on-secondary-container': '#38251E',
+        'light-surface': '#FAF8F5',
+        'light-on-surface': '#292522',
+        'light-surface-variant': '#F3EDE4',
+        'light-on-surface-variant': '#5A4E47',
+        'light-outline': '#D9C7B5',
+        'light-outline-variant': '#E7DDD2',
+        'light-success': '#2E6B4A',
+        'light-on-success': '#FFFFFF',
+        'light-warning': '#B4691B',
+        'light-on-warning': '#101010',
+        'light-error': '#A32D2D',
+        'light-on-error': '#FFFFFF',
+        'dark-primary': '#E7DDD2',
+        'dark-on-primary': '#241712',
+        'dark-primary-container': '#4D362C',
+        'dark-on-primary-container': '#F5F0E8',
+        'dark-secondary': '#D4A57E',
+        'dark-on-secondary': '#2E1C11',
+        'dark-secondary-container': '#5C3E2A',
+        'dark-on-secondary-container': '#FAF8F5',
+        'dark-surface': '#1E1613',
+        'dark-on-surface': '#F5F0E8',
+        'dark-surface-variant': '#2C211C',
+        'dark-on-surface-variant': '#D9C7B5',
+        'dark-outline': '#5C4A40',
+        'dark-outline-variant': '#3E3029',
+        'dark-success': '#57AB7A',
+        'dark-on-success': '#0E2B1B',
+        'dark-warning': '#EAA655',
+        'dark-on-warning': '#381E03',
+        'dark-error': '#F28B82',
+        'dark-on-error': '#3C0D0D',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '8px',
+        'md': '12px',
+        'lg': '16px',
+        'xl': '24px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '64px',
+        'page-margin': '24px',
+      },
+      fontFamily: {
+        'display': ['"Playfair Display"', 'sans-serif'],
+        'headline': ['"Playfair Display"', 'sans-serif'],
+        'title': ['"Poppins"', 'sans-serif'],
+        'body': ['"Poppins"', 'sans-serif'],
+        'label': ['"Poppins"', 'sans-serif'],
+      },
+      fontSize: {
+        'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+        'display-lg-mobile': ['32px', { lineHeight: '38px', letterSpacing: '-0.25px', fontWeight: '700' }],
+        'display-md': ['40px', { lineHeight: '48px', fontWeight: '600' }],
+        'display-md-mobile': ['28px', { lineHeight: '34px', fontWeight: '600' }],
+        'headline-lg': ['32px', { lineHeight: '40px', fontWeight: '600' }],
+        'headline-lg-mobile': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '32px', fontWeight: '600' }],
+        'headline-sm': ['20px', { lineHeight: '28px', fontWeight: '600' }],
+        'title-lg': ['18px', { lineHeight: '26px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '24px', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '26px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '22px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '18px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.5px', fontWeight: '600' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.5px', fontWeight: '600' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.5px', fontWeight: '500' }],
+      },
+      transitionDuration: {
+        'state-change': '150ms',
+        'surface-enter': '250ms',
+        'surface-exit': '180ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons {
+      display: inline-block; width: 1em; height: 1em; line-height: 1 !important;
+      box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="min-h-[1024px] bg-[#F6F4F0] text-light-on-surface font-body antialiased flex flex-col selection:bg-caramel selection:text-white" data-stitch-vh="min-h-[1024px]===min-h-screen">
+
+  <!-- Top Proposal Header Banner connecting back to public site -->
+  <header class="bg-espresso text-cream px-6 py-2 border-b border-[#4D362C] flex flex-wrap items-center justify-between text-body-sm z-40 sticky top-0">
+    <div class="flex items-center gap-3">
+      <span class="inline-flex items-center justify-center w-2.5 h-2.5 rounded-full bg-caramel ring-4 ring-caramel/20"></span>
+      <span class="font-label text-label-sm font-semibold text-white tracking-wide uppercase">Admin CMS Portal</span>
+      <span class="text-white/60 hidden sm:inline">| Demonstrasi Pengelolaan Mandiri Konten Kedai Kopi</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-label-sm bg-caramel/20 text-caramel border border-caramel/40 px-2.5 py-0.5 rounded font-label flex items-center gap-1">
+        <span class="material-symbols-outlined text-[14px]">link</span>
+        Sinkron Otomatis ke Web Publik
+      </span>
+      <button onclick="toggleLoginOverlay()" class="text-white/80 hover:text-white text-label-sm underline font-label">
+        Demo Halaman Login
+      </button>
+    </div>
+  </header>
+
+  <!-- Login Modal / Overlay Demo -->
+  <div id="login-overlay" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl border border-light-outline-variant max-w-md w-full p-8 shadow-2xl relative">
+      <button onclick="toggleLoginOverlay()" class="absolute top-5 right-5 text-light-on-surface-variant hover:text-light-primary">
+        <span class="material-symbols-outlined text-[22px]">close</span>
+      </button>
+
+      <div class="text-center mb-8">
+        <div class="w-12 h-12 rounded-xl bg-light-primary text-light-on-primary font-headline text-headline-sm font-bold flex items-center justify-center mx-auto mb-3 shadow-md">
+          CS
+        </div>
+        <h2 class="font-headline text-headline-md text-light-primary font-bold">Masuk ke Admin CMS</h2>
+        <p class="text-body-sm text-light-on-surface-variant mt-1">
+          Kelola konten website kedai kopi Anda dengan mudah tanpa pemrograman.
+        </p>
+      </div>
+
+      <form onsubmit="handleLoginDemo(event)" class="space-y-4">
+        <label class="flex flex-col gap-1.5">
+          <span class="font-label text-label-sm text-light-primary font-medium">Alamat Email Administrator</span>
+          <div class="relative flex items-center">
+            <span class="material-symbols-outlined absolute left-3 text-light-on-surface-variant text-[20px]">mail</span>
+            <input type="email" value="pemilik@coffeeshop.id" required class="w-full pl-10 pr-4 py-2.5 bg-light-surface rounded-DEFAULT border border-light-outline text-body-md focus:border-light-primary focus:ring-1 focus:ring-light-primary outline-none">
+          </div>
+        </label>
+
+        <label class="flex flex-col gap-1.5">
+          <div class="flex items-center justify-between">
+            <span class="font-label text-label-sm text-light-primary font-medium">Kata Sandi</span>
+            <a href="#" class="text-label-sm text-caramel hover:underline font-label">Lupa sandi?</a>
+          </div>
+          <div class="relative flex items-center">
+            <span class="material-symbols-outlined absolute left-3 text-light-on-surface-variant text-[20px]">lock</span>
+            <input type="password" value="••••••••••••" required class="w-full pl-10 pr-4 py-2.5 bg-light-surface rounded-DEFAULT border border-light-outline text-body-md focus:border-light-primary focus:ring-1 focus:ring-light-primary outline-none">
+          </div>
+        </label>
+
+        <div class="flex items-center justify-between text-body-sm py-1">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" checked class="rounded border-light-outline text-caramel focus:ring-caramel">
+            <span class="text-light-on-surface-variant">Ingat saya</span>
+          </label>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-light-primary hover:bg-[#291B16] text-white rounded-DEFAULT font-label text-label-md transition-all shadow">
+          Masuk ke Dashboard
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Notification Toast Container -->
+  <div id="cms-toast" class="hidden fixed bottom-6 right-6 z-50 bg-espresso text-cream px-5 py-3.5 rounded-lg shadow-xl border border-caramel/40 flex items-center gap-3 transition-all">
+    <span class="material-symbols-outlined text-caramel text-[22px]">check_circle</span>
+    <span id="cms-toast-msg" class="text-body-sm font-medium">Perubahan berhasil disimpan dan langsung tayang di website publik!</span>
+  </div>
+
+  <!-- Main Administrative Shell -->
+  <div class="flex-1 flex overflow-hidden">
+    
+    <!-- Sidebar Navigation -->
+    <aside id="cms-sidebar" class="w-64 bg-white border-r border-light-outline-variant flex flex-col justify-between flex-shrink-0 z-30 transition-all">
+      <div>
+        <!-- Brand Identity -->
+        <div class="p-6 border-b border-light-outline-variant flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded bg-light-primary text-light-on-primary flex items-center justify-center font-headline font-bold text-headline-sm">
+              CS
+            </div>
+            <div>
+              <h1 class="font-headline text-title-md font-bold text-light-primary leading-tight">Coffee Shop</h1>
+              <span class="text-label-sm text-caramel font-label uppercase tracking-wider block">Admin Panel v2.4</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="p-4 space-y-1.5">
+          <button onclick="switchCmsModule(&#39;dashboard&#39;)" id="cms-nav-dashboard" class="cms-nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-DEFAULT text-left font-label text-label-md bg-light-primary text-light-on-primary transition-all">
+            <span class="material-symbols-outlined text-[20px]">dashboard</span>
+            <span>Ikhtisar Dashboard</span>
+          </button>
+
+          <button onclick="switchCmsModule(&#39;articles&#39;)" id="cms-nav-articles" class="cms-nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-DEFAULT text-left font-label text-label-md text-light-on-surface-variant hover:bg-light-surface hover:text-light-primary transition-all">
+            <span class="material-symbols-outlined text-[20px]">article</span>
+            <span>Kelola Artikel</span>
+          </button>
+
+          <button onclick="switchCmsModule(&#39;menu&#39;)" id="cms-nav-menu" class="cms-nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-DEFAULT text-left font-label text-label-md text-light-on-surface-variant hover:bg-light-surface hover:text-light-primary transition-all">
+            <span class="material-symbols-outlined text-[20px]">restaurant_menu</span>
+            <span>Kelola Menu</span>
+          </button>
+
+          <button onclick="switchCmsModule(&#39;gallery&#39;)" id="cms-nav-gallery" class="cms-nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-DEFAULT text-left font-label text-label-md text-light-on-surface-variant hover:bg-light-surface hover:text-light-primary transition-all">
+            <span class="material-symbols-outlined text-[20px]">photo_library</span>
+            <span>Kelola Galeri Foto</span>
+          </button>
+
+          <button onclick="switchCmsModule(&#39;pages&#39;)" id="cms-nav-pages" class="cms-nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-DEFAULT text-left font-label text-label-md text-light-on-surface-variant hover:bg-light-surface hover:text-light-primary transition-all">
+            <span class="material-symbols-outlined text-[20px]">web</span>
+            <span>Konten Halaman Web</span>
+          </button>
+
+          <button onclick="switchCmsModule(&#39;settings&#39;)" id="cms-nav-settings" class="cms-nav-item w-full flex items-center gap-3 px-3.5 py-2.5 rounded-DEFAULT text-left font-label text-label-md text-light-on-surface-variant hover:bg-light-surface hover:text-light-primary transition-all">
+            <span class="material-symbols-outlined text-[20px]">settings</span>
+            <span>Pengaturan Identitas</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- User Profile Card -->
+      <div class="p-4 border-t border-light-outline-variant bg-light-surface/60">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-caramel/20 text-caramel flex items-center justify-center font-bold font-headline">
+            AK
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-label text-label-sm text-light-primary font-semibold truncate">Andi Kurniawan</p>
+            <p class="text-body-sm text-light-on-surface-variant truncate">Pemilik Kedai (Owner)</p>
+          </div>
+          <button onclick="toggleLoginOverlay()" class="text-light-on-surface-variant hover:text-light-error p-1 rounded" title="Keluar / Ganti Akun">
+            <span class="material-symbols-outlined text-[18px]">logout</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Workspace Area -->
+    <div class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+      
+      <!-- Top Action Bar -->
+      <div class="bg-white border-b border-light-outline-variant px-8 py-4 flex items-center justify-between gap-4 sticky top-0 z-20">
+        <div>
+          <h2 id="cms-page-title" class="font-headline text-headline-sm text-light-primary font-bold">
+            Ikhtisar Dashboard Konten
+          </h2>
+          <p id="cms-page-subtitle" class="text-body-sm text-light-on-surface-variant">
+            Ringkasan status publikasi seluruh materi website profil kedai kopi Anda.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <!-- Quick Status Pill -->
+          <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-light-success text-label-sm font-label border border-emerald-200">
+            <span class="w-2 h-2 rounded-full bg-light-success animate-ping"></span>
+            <span>Server Web Publik Aktif</span>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <button onclick="openArticleEditor()" class="inline-flex items-center gap-1.5 px-4 py-2 bg-caramel hover:bg-[#A37046] text-white font-label text-label-sm rounded-DEFAULT transition-all shadow-sm">
+            <span class="material-symbols-outlined text-[16px]">add</span>
+            <span>Artikel Baru</span>
+          </button>
+          <button onclick="openMenuEditor()" class="inline-flex items-center gap-1.5 px-4 py-2 bg-light-primary hover:bg-[#291B16] text-light-on-primary font-label text-label-sm rounded-DEFAULT transition-all shadow-sm">
+            <span class="material-symbols-outlined text-[16px]">add</span>
+            <span>Menu Baru</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="p-8 max-w-7xl w-full mx-auto space-y-8">
+        
+        <!-- ======================================================== -->
+        <!-- MODULE 1: DASHBOARD OVERVIEW -->
+        <!-- ======================================================== -->
+        <section id="module-dashboard" class="cms-module block space-y-8">
+          
+          <!-- Summary Metrics Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-xl border border-light-outline-variant shadow-sm flex items-center justify-between">
+              <div>
+                <p class="text-body-sm text-light-on-surface-variant font-label">Total Artikel</p>
+                <p class="font-headline text-display-md text-light-primary font-bold mt-1 tabular-nums">12</p>
+                <p class="text-label-sm text-light-success font-label flex items-center gap-1 mt-1">
+                  <span class="material-symbols-outlined text-[14px]">check</span> 9 Tayang Publik, 3 Draf
+                </p>
+              </div>
+              <div class="w-12 h-12 rounded-lg bg-light-primary-container text-light-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[24px]">article</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-light-outline-variant shadow-sm flex items-center justify-between">
+              <div>
+                <p class="text-body-sm text-light-on-surface-variant font-label">Total Menu Produk</p>
+                <p class="font-headline text-display-md text-light-primary font-bold mt-1 tabular-nums">24</p>
+                <p class="text-label-sm text-caramel font-label flex items-center gap-1 mt-1">
+                  <span class="material-symbols-outlined text-[14px]">stars</span> 4 Menu Unggulan
+                </p>
+              </div>
+              <div class="w-12 h-12 rounded-lg bg-light-secondary-container text-caramel flex items-center justify-center">
+                <span class="material-symbols-outlined text-[24px]">restaurant_menu</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-light-outline-variant shadow-sm flex items-center justify-between">
+              <div>
+                <p class="text-body-sm text-light-on-surface-variant font-label">Foto di Galeri</p>
+                <p class="font-headline text-display-md text-light-primary font-bold mt-1 tabular-nums">36</p>
+                <p class="text-label-sm text-light-on-surface-variant font-label flex items-center gap-1 mt-1">
+                  <span class="material-symbols-outlined text-[14px]">category</span> 5 Kategori Foto
+                </p>
+              </div>
+              <div class="w-12 h-12 rounded-lg bg-light-surface-variant text-light-primary flex items-center justify-center">
+                <span class="material-symbols-outlined text-[24px]">photo_library</span>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-light-outline-variant shadow-sm flex items-center justify-between">
+              <div>
+                <p class="text-body-sm text-light-on-surface-variant font-label">Kunjungan Profil Web</p>
+                <p class="font-headline text-display-md text-light-primary font-bold mt-1 tabular-nums">1.840</p>
+                <p class="text-label-sm text-light-success font-label flex items-center gap-1 mt-1">
+                  <span class="material-symbols-outlined text-[14px]">trending_up</span> +18% minggu ini
+                </p>
+              </div>
+              <div class="w-12 h-12 rounded-lg bg-emerald-50 text-light-success flex items-center justify-center">
+                <span class="material-symbols-outlined text-[24px]">visibility</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Relationship Explainer Card (Core Requirement) -->
+          <div class="bg-espresso text-cream p-6 rounded-xl border border-[#4D362C] flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="space-y-1">
+              <span class="text-label-sm text-caramel uppercase font-label tracking-wider flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">sync_alt</span>
+                Konsep Integrasi CMS &amp; Website Publik
+              </span>
+              <h3 class="font-headline text-headline-sm text-white font-bold">Semua Perubahan Langsung Terlihat Nyata</h3>
+              <p class="text-body-sm text-cream/70 max-w-2xl">
+                Saat Anda memperbarui harga kopi, menambah galeri suasana, atau mengedit teks headline beranda, sistem CMS langsung menyinkronkan data ke website publik tanpa perlu bantuan programmer.
+              </p>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="switchCmsModule(&#39;pages&#39;)" class="px-5 py-2.5 bg-caramel hover:bg-[#A37046] text-white font-label text-label-md rounded-DEFAULT whitespace-nowrap">
+                Edit Halaman Beranda
+              </button>
+            </div>
+          </div>
+
+          <!-- Two Column Table & Activity -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Left: Latest Articles Activity -->
+            <div class="lg:col-span-7 bg-white rounded-xl border border-light-outline-variant p-6 shadow-sm">
+              <div class="flex items-center justify-between mb-5">
+                <h3 class="font-headline text-headline-sm text-light-primary font-bold">Aktivitas Artikel Terkini</h3>
+                <button onclick="switchCmsModule(&#39;articles&#39;)" class="text-label-sm text-caramel font-label hover:underline">Kelola Semua</button>
+              </div>
+              <div class="divide-y divide-light-outline-variant">
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div>
+                    <p class="font-label text-label-md text-light-primary font-semibold">Mengenal Karakteristik Rasa Kopi Single Origin</p>
+                    <p class="text-body-sm text-light-on-surface-variant">Kategori: Edukasi • 14 Nov 2026</p>
+                  </div>
+                  <span class="px-2.5 py-0.5 rounded-full text-label-sm font-label bg-emerald-50 text-light-success border border-emerald-200 whitespace-nowrap">
+                    Publikasi
+                  </span>
+                </div>
+
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div>
+                    <p class="font-label text-label-md text-light-primary font-semibold">5 Rahasia Menyeduh Kopi Manual V60 di Rumah</p>
+                    <p class="text-body-sm text-light-on-surface-variant">Kategori: Panduan • 10 Nov 2026</p>
+                  </div>
+                  <span class="px-2.5 py-0.5 rounded-full text-label-sm font-label bg-emerald-50 text-light-success border border-emerald-200 whitespace-nowrap">
+                    Publikasi
+                  </span>
+                </div>
+
+                <div class="py-3.5 flex items-center justify-between gap-4">
+                  <div>
+                    <p class="font-label text-label-md text-light-primary font-semibold">Persiapan Menu Spesial Musim Liburan Akhir Tahun</p>
+                    <p class="text-body-sm text-light-on-surface-variant">Kategori: Event • Draf belum tayang</p>
+                  </div>
+                  <span class="px-2.5 py-0.5 rounded-full text-label-sm font-label bg-amber-50 text-amber-700 border border-amber-200 whitespace-nowrap">
+                    Draf
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Quick Content Shortcuts -->
+            <div class="lg:col-span-5 bg-white rounded-xl border border-light-outline-variant p-6 shadow-sm flex flex-col justify-between">
+              <div>
+                <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-4">Akses Cepat Pengelolaan</h3>
+                <div class="space-y-3">
+                  <button onclick="switchCmsModule(&#39;menu&#39;)" class="w-full p-3 rounded-lg border border-light-outline-variant hover:border-caramel hover:bg-light-surface flex items-center justify-between transition-colors text-left">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded bg-light-primary-container text-light-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[20px]">local_cafe</span>
+                      </div>
+                      <div>
+                        <p class="font-label text-label-md text-light-primary font-semibold">Perbarui Harga / Menu Kopi</p>
+                        <p class="text-body-sm text-light-on-surface-variant">Ubah ketersediaan &amp; foto menu</p>
+                      </div>
+                    </div>
+                    <span class="material-symbols-outlined text-light-on-surface-variant">arrow_forward</span>
+                  </button>
+
+                  <button onclick="switchCmsModule(&#39;gallery&#39;)" class="w-full p-3 rounded-lg border border-light-outline-variant hover:border-caramel hover:bg-light-surface flex items-center justify-between transition-colors text-left">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded bg-light-secondary-container text-caramel flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[20px]">add_a_photo</span>
+                      </div>
+                      <div>
+                        <p class="font-label text-label-md text-light-primary font-semibold">Unggah Foto Kedai Baru</p>
+                        <p class="text-body-sm text-light-on-surface-variant">Tambah foto ke galeri publik</p>
+                      </div>
+                    </div>
+                    <span class="material-symbols-outlined text-light-on-surface-variant">arrow_forward</span>
+                  </button>
+
+                  <button onclick="switchCmsModule(&#39;settings&#39;)" class="w-full p-3 rounded-lg border border-light-outline-variant hover:border-caramel hover:bg-light-surface flex items-center justify-between transition-colors text-left">
+                    <div class="flex items-center gap-3">
+                      <div class="w-9 h-9 rounded bg-light-surface-variant text-light-primary flex items-center justify-center">
+                        <span class="material-symbols-outlined text-[20px]">palette</span>
+                      </div>
+                      <div>
+                        <p class="font-label text-label-md text-light-primary font-semibold">Identitas &amp; Logo Kedai</p>
+                        <p class="text-body-sm text-light-on-surface-variant">Ganti logo &amp; kontak operasional</p>
+                      </div>
+                    </div>
+                    <span class="material-symbols-outlined text-light-on-surface-variant">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="pt-6 border-t border-light-outline-variant mt-4 flex items-center justify-between text-body-sm text-light-on-surface-variant">
+                <span>Versi CMS: Demo Proposal</span>
+                <span class="text-emerald-700 font-label text-label-sm font-semibold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px]">cloud_done</span> Terkoneksi
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 2: ARTICLE MANAGEMENT -->
+        <!-- ======================================================== -->
+        <section id="module-articles" class="cms-module hidden space-y-6">
+          
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+              <div class="relative w-full sm:w-64">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-light-on-surface-variant text-[18px]">search</span>
+                <input type="text" placeholder="Cari artikel..." class="w-full pl-9 pr-3 py-2 bg-white rounded-DEFAULT border border-light-outline text-body-md text-light-on-surface outline-none focus:border-light-primary">
+              </div>
+              <select class="px-3 py-2 bg-white border border-light-outline rounded-DEFAULT text-body-md text-light-on-surface outline-none">
+                <option>Semua Kategori</option>
+                <option>Eksplorasi Asal Biji</option>
+                <option>Tips Barista</option>
+                <option>Kultur Kedai</option>
+              </select>
+            </div>
+            <button onclick="openArticleEditor()" class="w-full sm:w-auto px-5 py-2.5 bg-caramel hover:bg-[#A37046] text-white font-label text-label-md rounded-DEFAULT flex items-center justify-center gap-2 shadow-sm">
+              <span class="material-symbols-outlined text-[18px]">add</span>
+              <span>Tambah Artikel Baru</span>
+            </button>
+          </div>
+
+          <!-- Articles Data Table -->
+          <div class="bg-white rounded-xl border border-light-outline-variant overflow-hidden shadow-sm">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-light-surface-variant border-b border-light-outline-variant">
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary">Artikel</th>
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary">Kategori</th>
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary">Penulis</th>
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary">Tanggal</th>
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary">Status</th>
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary text-right">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-light-outline-variant text-body-md">
+                  <!-- Row 1 -->
+                  <tr class="hover:bg-light-surface/60 transition-colors">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdRWupq9c0mGwdTZ68KK0L13gK79FZMXlpDTErkcGjPBlOvtQ4DGQH9G7Z6fojGCTTPTxBJOqnJjB6ndJHIYfBQ0ygZNru78GBLk8UOC2QXirA7FkpwGL5HnP2iDwnrakqvXl6nSOKV7GrktquTCpKNBrnidDL7Tt-SZQNJnEJOthRi9F6PjwVU47Z2e438nUOr_xriu8WMj48fh-Pbx2ZVtpiz9uo6GBIOV1LY3sIkYIDs5H-WkGjPVb04WIi" alt class="w-12 h-12 rounded object-cover flex-shrink-0">
+                        <div>
+                          <p class="font-label text-label-md font-semibold text-light-primary">Mengenal Karakteristik Rasa Kopi Single Origin</p>
+                          <p class="text-body-sm text-light-on-surface-variant">/artikel/karakter-single-origin-indonesia</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">Eksplorasi Biji</td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">Head Roaster</td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">14 Nov 2026</td>
+                    <td class="py-4 px-4">
+                      <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label bg-emerald-50 text-light-success border border-emerald-200">
+                        <span class="w-1.5 h-1.5 rounded-full bg-light-success"></span>
+                        Tayang Publik
+                      </span>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                      <div class="inline-flex items-center gap-1">
+                        <button onclick="openArticleEditor()" class="p-1.5 rounded hover:bg-light-surface-variant text-light-on-surface-variant hover:text-light-primary" title="Edit Artikel">
+                          <span class="material-symbols-outlined text-[18px]">edit</span>
+                        </button>
+                        <button onclick="triggerDeleteAlert(&#39;Artikel: Mengenal Karakteristik Rasa&#39;)" class="p-1.5 rounded hover:bg-red-50 text-light-on-surface-variant hover:text-light-error" title="Hapus Artikel">
+                          <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Row 2 -->
+                  <tr class="hover:bg-light-surface/60 transition-colors">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <img src="https://lh3.googleusercontent.com/aida/ALJJyrAAnRziPe0SOuHd3PgcZCgE4gHiztW77wZZw0tIg58_G3Dy0XqiNjenhpWpXrLIVlxajFaazi_3xqjZ2AC8AqAHhzfFu6zoSzZg9RSbsgHXcajhxs07EQEUlgSQ5CTUECHKJTp9cgGzKkJYrLjd0I1K8nVo1F3OShJ9fqV6eHUAqhPGmQkI0LMnGl_vpmngN7VXHv9-GpFx7MQ5aFLLQo7FnIkj0ECjlya9Syu5GwOKm33bJlXupF0YqRo" alt class="w-12 h-12 rounded object-cover flex-shrink-0">
+                        <div>
+                          <p class="font-label text-label-md font-semibold text-light-primary">5 Rahasia Menyeduh Kopi Manual V60 di Rumah</p>
+                          <p class="text-body-sm text-light-on-surface-variant">/artikel/panduan-seduh-v60-nikmat</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">Tips Barista</td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">Barista Dimas</td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">10 Nov 2026</td>
+                    <td class="py-4 px-4">
+                      <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label bg-emerald-50 text-light-success border border-emerald-200">
+                        <span class="w-1.5 h-1.5 rounded-full bg-light-success"></span>
+                        Tayang Publik
+                      </span>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                      <div class="inline-flex items-center gap-1">
+                        <button onclick="openArticleEditor()" class="p-1.5 rounded hover:bg-light-surface-variant text-light-on-surface-variant hover:text-light-primary">
+                          <span class="material-symbols-outlined text-[18px]">edit</span>
+                        </button>
+                        <button onclick="triggerDeleteAlert(&#39;Artikel: 5 Rahasia Menyeduh&#39;)" class="p-1.5 rounded hover:bg-red-50 text-light-on-surface-variant hover:text-light-error">
+                          <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Row 3 (Draft) -->
+                  <tr class="hover:bg-light-surface/60 transition-colors bg-amber-50/20">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded bg-light-surface-variant flex items-center justify-center text-light-on-surface-variant">
+                          <span class="material-symbols-outlined text-[20px]">image</span>
+                        </div>
+                        <div>
+                          <p class="font-label text-label-md font-semibold text-light-primary">Sensasi Kopi Fermentasi Anaerobic Natural</p>
+                          <p class="text-body-sm text-light-on-surface-variant">/artikel/proses-anaerobic-kopi</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">Eksplorasi Biji</td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">Andi K.</td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">Draft Hari Ini</td>
+                    <td class="py-4 px-4">
+                      <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-label-sm font-label bg-amber-100 text-amber-800 border border-amber-300">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                        Draf (Tidak Tampil di Web)
+                      </span>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                      <div class="inline-flex items-center gap-1">
+                        <button onclick="openArticleEditor()" class="p-1.5 rounded hover:bg-light-surface-variant text-light-on-surface-variant hover:text-light-primary">
+                          <span class="material-symbols-outlined text-[18px]">edit</span>
+                        </button>
+                        <button onclick="triggerDeleteAlert(&#39;Draf Artikel&#39;)" class="p-1.5 rounded hover:bg-red-50 text-light-on-surface-variant hover:text-light-error">
+                          <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 2B: ARTICLE EDITOR FORM -->
+        <!-- ======================================================== -->
+        <section id="module-article-editor" class="cms-module hidden space-y-6">
+          <div class="flex items-center justify-between pb-4 border-b border-light-outline-variant">
+            <button onclick="switchCmsModule(&#39;articles&#39;)" class="inline-flex items-center gap-2 text-label-md font-label text-light-primary hover:text-caramel">
+              <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+              <span>Kembali ke Daftar Artikel</span>
+            </button>
+            <div class="flex items-center gap-3">
+              <button onclick="showToast(&#39;Draf artikel berhasil disimpan!&#39;)" class="px-4 py-2 border border-light-outline bg-white hover:bg-light-surface rounded-DEFAULT text-label-md font-label text-light-primary">
+                Simpan Sebagai Draf
+              </button>
+              <button onclick="showToast(&#39;Artikel berhasil dipublikasikan ke website publik!&#39;)" class="px-5 py-2 bg-light-primary hover:bg-[#291B16] text-white rounded-DEFAULT text-label-md font-label flex items-center gap-1.5 shadow">
+                <span class="material-symbols-outlined text-[18px]">publish</span>
+                <span>Terbitkan Sekarang</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Main Content Area -->
+            <div class="lg:col-span-8 bg-white p-6 rounded-xl border border-light-outline-variant space-y-5">
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-light-primary font-medium">Judul Artikel *</span>
+                <input type="text" value="Mengenal Karakteristik Rasa Kopi Single Origin Indonesia" class="w-full px-4 py-2.5 bg-light-surface border border-light-outline rounded-DEFAULT text-headline-sm font-headline font-bold focus:border-light-primary outline-none">
+              </label>
+
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-sm text-light-on-surface-variant font-medium">Slug URL Otomatis</span>
+                <div class="flex items-center">
+                  <span class="px-3 py-2 bg-light-surface-variant border border-r-0 border-light-outline rounded-l text-body-sm text-light-on-surface-variant">https://domain.id/artikel/</span>
+                  <input type="text" value="karakter-single-origin-indonesia" class="w-full px-3 py-2 bg-light-surface border border-light-outline rounded-r text-body-sm focus:border-light-primary outline-none">
+                </div>
+              </label>
+
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-light-primary font-medium">Ringkasan / Excerpt *</span>
+                <textarea rows="2" class="w-full px-4 py-2 bg-light-surface border border-light-outline rounded-DEFAULT text-body-md focus:border-light-primary outline-none resize-none">Menelusuri keunikan notes floral dari Toraja hingga keasaman segar buah-buahan dari lereng Gunung Ijen Jawa Timur.</textarea>
+              </label>
+
+              <!-- Rich Text Editor Mockup -->
+              <div class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-light-primary font-medium">Konten Utama Artikel (Rich Text Editor)</span>
+                <div class="border border-light-outline rounded-DEFAULT overflow-hidden">
+                  <!-- Editor Toolbar -->
+                  <div class="bg-light-surface-variant border-b border-light-outline px-3 py-2 flex flex-wrap items-center gap-1 text-light-on-surface-variant">
+                    <button class="p-1 hover:bg-white rounded font-bold">B</button>
+                    <button class="p-1 hover:bg-white rounded italic">I</button>
+                    <button class="p-1 hover:bg-white rounded underline">U</button>
+                    <span class="w-[1px] h-4 bg-light-outline mx-1"></span>
+                    <button class="p-1 hover:bg-white rounded flex items-center"><span class="material-symbols-outlined text-[16px]">format_h2</span></button>
+                    <button class="p-1 hover:bg-white rounded flex items-center"><span class="material-symbols-outlined text-[16px]">format_list_bulleted</span></button>
+                    <button class="p-1 hover:bg-white rounded flex items-center"><span class="material-symbols-outlined text-[16px]">format_quote</span></button>
+                    <button class="p-1 hover:bg-white rounded flex items-center"><span class="material-symbols-outlined text-[16px]">image</span></button>
+                    <button class="p-1 hover:bg-white rounded flex items-center"><span class="material-symbols-outlined text-[16px]">link</span></button>
+                  </div>
+                  <textarea rows="10" class="w-full p-4 bg-white text-body-md outline-none resize-y">Indonesia merupakan salah satu negara penghasil kopi paling beragam di dunia. Terbentang di sepanjang garis khatulistiwa dengan rantai pegunungan vulkanik yang subur, setiap pulau melahirkan biji kopi dengan identitas organoleptik yang sangat spesifik dan memikat...</textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- Meta & Image Column -->
+            <div class="lg:col-span-4 space-y-6">
+              <div class="bg-white p-6 rounded-xl border border-light-outline-variant space-y-4">
+                <h3 class="font-headline text-headline-sm text-light-primary font-bold">Status Publikasi</h3>
+                
+                <label class="flex flex-col gap-1.5">
+                  <span class="font-label text-label-sm text-light-primary font-medium">Status</span>
+                  <select class="w-full px-3 py-2 bg-light-surface border border-light-outline rounded text-body-md">
+                    <option selected>Tayang Publik (Published)</option>
+                    <option>Draf Privat (Draft)</option>
+                  </select>
+                </label>
+
+                <label class="flex flex-col gap-1.5">
+                  <span class="font-label text-label-sm text-light-primary font-medium">Kategori Artikel</span>
+                  <select class="w-full px-3 py-2 bg-light-surface border border-light-outline rounded text-body-md">
+                    <option selected>Eksplorasi Asal Biji</option>
+                    <option>Tips &amp; Panduan Barista</option>
+                    <option>Kultur &amp; Acara Kedai</option>
+                  </select>
+                </label>
+
+                <label class="flex flex-col gap-1.5">
+                  <span class="font-label text-label-sm text-light-primary font-medium">Tanggal Publikasi</span>
+                  <input type="date" value="2026-11-14" class="w-full px-3 py-2 bg-light-surface border border-light-outline rounded text-body-md">
+                </label>
+              </div>
+
+              <!-- Featured Image Upload Area -->
+              <div class="bg-white p-6 rounded-xl border border-light-outline-variant space-y-3">
+                <h3 class="font-headline text-headline-sm text-light-primary font-bold">Gambar Unggulan</h3>
+                <div class="rounded-lg overflow-hidden border border-light-outline-variant relative group">
+                  <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdRWupq9c0mGwdTZ68KK0L13gK79FZMXlpDTErkcGjPBlOvtQ4DGQH9G7Z6fojGCTTPTxBJOqnJjB6ndJHIYfBQ0ygZNru78GBLk8UOC2QXirA7FkpwGL5HnP2iDwnrakqvXl6nSOKV7GrktquTCpKNBrnidDL7Tt-SZQNJnEJOthRi9F6PjwVU47Z2e438nUOr_xriu8WMj48fh-Pbx2ZVtpiz9uo6GBIOV1LY3sIkYIDs5H-WkGjPVb04WIi" alt class="w-full h-40 object-cover">
+                  <div class="absolute inset-0 bg-espresso/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                    <button class="px-3 py-1 bg-white text-light-primary text-label-sm font-label rounded">Ganti Foto</button>
+                  </div>
+                </div>
+                <p class="text-body-sm text-light-on-surface-variant">Rekomendasi rasio 16:9, format JPG/PNG maksimal 2MB.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 3: MENU MANAGEMENT -->
+        <!-- ======================================================== -->
+        <section id="module-menu" class="cms-module hidden space-y-6">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+              <div class="relative w-full sm:w-64">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-light-on-surface-variant text-[18px]">search</span>
+                <input type="text" placeholder="Cari nama menu..." class="w-full pl-9 pr-3 py-2 bg-white rounded-DEFAULT border border-light-outline text-body-md text-light-on-surface outline-none focus:border-light-primary">
+              </div>
+              <select class="px-3 py-2 bg-white border border-light-outline rounded-DEFAULT text-body-md text-light-on-surface outline-none">
+                <option>Semua Kategori</option>
+                <option>Espresso Based</option>
+                <option>Manual Brew</option>
+                <option>Signature Drinks</option>
+                <option>Food &amp; Snacks</option>
+              </select>
+            </div>
+            <button onclick="openMenuEditor()" class="w-full sm:w-auto px-5 py-2.5 bg-light-primary hover:bg-[#291B16] text-light-on-primary font-label text-label-md rounded-DEFAULT flex items-center justify-center gap-2 shadow-sm">
+              <span class="material-symbols-outlined text-[18px]">add</span>
+              <span>Tambah Menu Baru</span>
+            </button>
+          </div>
+
+          <!-- Menu Products Table -->
+          <div class="bg-white rounded-xl border border-light-outline-variant overflow-hidden shadow-sm">
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-light-surface-variant border-b border-light-outline-variant">
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary">Produk</th>
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary">Kategori</th>
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary">Harga (IDR)</th>
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary">Status Tayang</th>
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary">Featured</th>
+                    <th class="py-3.5 px-4 font-label text-label-md text-light-primary text-right">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-light-outline-variant text-body-md">
+                  <!-- Product 1 -->
+                  <tr class="hover:bg-light-surface/60 transition-colors">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <img src="https://lh3.googleusercontent.com/aida/ALJJyrB3W1kWCy1P7Nyg4oWuxNq3yCvnpkjRYlS3GtJsRuVAhcXmMnD6GxxF8ToJrprTitvsaQfk3JusLmtWHGOM06FOewRW47rqqweV2WOLDLVWkOke2UdXZ6VyTmiYUXSAS1gDjnTvcppEMdsAY058u3EDLHGdjtFWrdqFl8-P88V5hPjwsR85W60aIi-xk01aKeHaodiNjOBs6F6leyRS2qltC0P6qrH9J1ewJXQKG48huUYDrFAbeYhX" alt class="w-12 h-12 rounded object-cover flex-shrink-0">
+                        <div>
+                          <p class="font-label text-label-md font-semibold text-light-primary">Single Origin Espresso Gayo</p>
+                          <p class="text-body-sm text-light-on-surface-variant line-clamp-1">Ekstraksi intens crema keemasan tebal</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">Espresso Based</td>
+                    <td class="py-4 px-4 font-title text-title-md font-semibold text-light-primary tabular-nums">Rp 28.000</td>
+                    <td class="py-4 px-4">
+                      <button onclick="toggleAvailability(this)" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label bg-emerald-50 text-light-success border border-emerald-200">
+                        <span class="w-2 h-2 rounded-full bg-light-success"></span>
+                        <span>Tersedia</span>
+                      </button>
+                    </td>
+                    <td class="py-4 px-4">
+                      <span class="material-symbols-outlined text-caramel text-[22px]" title="Menu Unggulan Beranda">star</span>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                      <div class="inline-flex items-center gap-1">
+                        <button onclick="openMenuEditor()" class="p-1.5 rounded hover:bg-light-surface-variant text-light-on-surface-variant hover:text-light-primary">
+                          <span class="material-symbols-outlined text-[18px]">edit</span>
+                        </button>
+                        <button onclick="triggerDeleteAlert(&#39;Menu: Single Origin Espresso Gayo&#39;)" class="p-1.5 rounded hover:bg-red-50 text-light-on-surface-variant hover:text-light-error">
+                          <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Product 2 -->
+                  <tr class="hover:bg-light-surface/60 transition-colors">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <img src="https://lh3.googleusercontent.com/aida/ALJJyrAAnRziPe0SOuHd3PgcZCgE4gHiztW77wZZw0tIg58_G3Dy0XqiNjenhpWpXrLIVlxajFaazi_3xqjZ2AC8AqAHhzfFu6zoSzZg9RSbsgHXcajhxs07EQEUlgSQ5CTUECHKJTp9cgGzKkJYrLjd0I1K8nVo1F3OShJ9fqV6eHUAqhPGmQkI0LMnGl_vpmngN7VXHv9-GpFx7MQ5aFLLQo7FnIkj0ECjlya9Syu5GwOKm33bJlXupF0YqRo" alt class="w-12 h-12 rounded object-cover flex-shrink-0">
+                        <div>
+                          <p class="font-label text-label-md font-semibold text-light-primary">V60 Pour Over Flores Bajawa</p>
+                          <p class="text-body-sm text-light-on-surface-variant line-clamp-1">Karakter bersih dengan aroma melati</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">Manual Brew</td>
+                    <td class="py-4 px-4 font-title text-title-md font-semibold text-light-primary tabular-nums">Rp 35.000</td>
+                    <td class="py-4 px-4">
+                      <button onclick="toggleAvailability(this)" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label bg-emerald-50 text-light-success border border-emerald-200">
+                        <span class="w-2 h-2 rounded-full bg-light-success"></span>
+                        <span>Tersedia</span>
+                      </button>
+                    </td>
+                    <td class="py-4 px-4">
+                      <span class="material-symbols-outlined text-caramel text-[22px]">star</span>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                      <div class="inline-flex items-center gap-1">
+                        <button onclick="openMenuEditor()" class="p-1.5 rounded hover:bg-light-surface-variant text-light-on-surface-variant hover:text-light-primary">
+                          <span class="material-symbols-outlined text-[18px]">edit</span>
+                        </button>
+                        <button onclick="triggerDeleteAlert(&#39;Menu: V60 Pour Over&#39;)" class="p-1.5 rounded hover:bg-red-50 text-light-on-surface-variant hover:text-light-error">
+                          <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Product 3 -->
+                  <tr class="hover:bg-light-surface/60 transition-colors">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <img src="https://lh3.googleusercontent.com/aida/ALJJyrB7z_kxlF6E6P60gBgio5UEippaz_sY_s6eL2F0YmZwiQ-2gLvo46ZjuS3Sw4Uo3qP-erae_U3myHSJn8DkIsAn_SuAPG59tzrIfuabvPu_zDPhO6cgHFssifjtQRax-nd_WPO4yS4B6QSal9bgI06r8fck_GNNwu2_ap0XGDQC-RKIJXSqqOVnoTi06CaKgxyDpG_UCGW2eipYQUC2CAHQx9Sln2_mF54BBuAgCT5hU29Fr_33KfaIGH5zTwNDEIdD" alt class="w-12 h-12 rounded object-cover flex-shrink-0">
+                        <div>
+                          <p class="font-label text-label-md font-semibold text-light-primary">Sea Salt Caramel Latte</p>
+                          <p class="text-body-sm text-light-on-surface-variant line-clamp-1">Karamel bakar resep rumahan dan garam laut</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4 text-light-on-surface-variant">Signature Drinks</td>
+                    <td class="py-4 px-4 font-title text-title-md font-semibold text-light-primary tabular-nums">Rp 38.000</td>
+                    <td class="py-4 px-4">
+                      <button onclick="toggleAvailability(this)" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label bg-emerald-50 text-light-success border border-emerald-200">
+                        <span class="w-2 h-2 rounded-full bg-light-success"></span>
+                        <span>Tersedia</span>
+                      </button>
+                    </td>
+                    <td class="py-4 px-4">
+                      <span class="material-symbols-outlined text-caramel text-[22px]">star</span>
+                    </td>
+                    <td class="py-4 px-4 text-right">
+                      <div class="inline-flex items-center gap-1">
+                        <button onclick="openMenuEditor()" class="p-1.5 rounded hover:bg-light-surface-variant text-light-on-surface-variant hover:text-light-primary">
+                          <span class="material-symbols-outlined text-[18px]">edit</span>
+                        </button>
+                        <button onclick="triggerDeleteAlert(&#39;Menu: Sea Salt Caramel&#39;)" class="p-1.5 rounded hover:bg-red-50 text-light-on-surface-variant hover:text-light-error">
+                          <span class="material-symbols-outlined text-[18px]">delete</span>
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 3B: MENU EDITOR FORM -->
+        <!-- ======================================================== -->
+        <section id="module-menu-editor" class="cms-module hidden space-y-6">
+          <div class="flex items-center justify-between pb-4 border-b border-light-outline-variant">
+            <button onclick="switchCmsModule(&#39;menu&#39;)" class="inline-flex items-center gap-2 text-label-md font-label text-light-primary hover:text-caramel">
+              <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+              <span>Kembali ke Daftar Menu</span>
+            </button>
+            <button onclick="showToast(&#39;Data produk menu berhasil diperbarui!&#39;)" class="px-5 py-2 bg-light-primary hover:bg-[#291B16] text-white rounded-DEFAULT text-label-md font-label flex items-center gap-1.5 shadow">
+              <span class="material-symbols-outlined text-[18px]">save</span>
+              <span>Simpan Perubahan Menu</span>
+            </button>
+          </div>
+
+          <div class="bg-white p-8 rounded-xl border border-light-outline-variant max-w-3xl space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-light-primary font-medium">Nama Produk Menu *</span>
+                <input type="text" value="Sea Salt Caramel Latte" class="w-full px-4 py-2.5 bg-light-surface border border-light-outline rounded text-body-md focus:border-light-primary outline-none">
+              </label>
+
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-light-primary font-medium">Kategori Menu *</span>
+                <select class="w-full px-4 py-2.5 bg-light-surface border border-light-outline rounded text-body-md focus:border-light-primary outline-none">
+                  <option>Espresso Based</option>
+                  <option>Manual Brew</option>
+                  <option selected>Signature Drinks</option>
+                  <option>Non-Coffee</option>
+                  <option>Food &amp; Snacks</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-light-primary font-medium">Harga Jual (IDR Rupiah) *</span>
+                <div class="relative flex items-center">
+                  <span class="absolute left-3 font-title text-title-md text-light-on-surface-variant">Rp</span>
+                  <input type="number" value="38000" class="w-full pl-12 pr-4 py-2.5 bg-light-surface border border-light-outline rounded text-body-md tabular-nums focus:border-light-primary outline-none">
+                </div>
+              </label>
+
+              <div class="flex flex-col gap-2 justify-center">
+                <span class="font-label text-label-md text-light-primary font-medium">Tampilkan di Beranda</span>
+                <label class="flex items-center gap-2 cursor-pointer mt-1">
+                  <input type="checkbox" checked class="rounded border-light-outline text-caramel focus:ring-caramel">
+                  <span class="text-body-md text-light-on-surface">Jadikan Menu Unggulan (Featured)</span>
+                </label>
+              </div>
+            </div>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-light-primary font-medium">Deskripsi Singkat Sajian *</span>
+              <textarea rows="3" class="w-full px-4 py-2 bg-light-surface border border-light-outline rounded text-body-md focus:border-light-primary outline-none resize-none">Perpaduan espresso kental, sirup karamel bakar buatan sendiri, susu segar, dan sentuhan garam laut Bali.</textarea>
+            </label>
+
+            <!-- Image Upload Component -->
+            <div class="flex flex-col gap-2">
+              <span class="font-label text-label-md text-light-primary font-medium">Foto Sajian Produk</span>
+              <div class="flex items-center gap-4">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrB7z_kxlF6E6P60gBgio5UEippaz_sY_s6eL2F0YmZwiQ-2gLvo46ZjuS3Sw4Uo3qP-erae_U3myHSJn8DkIsAn_SuAPG59tzrIfuabvPu_zDPhO6cgHFssifjtQRax-nd_WPO4yS4B6QSal9bgI06r8fck_GNNwu2_ap0XGDQC-RKIJXSqqOVnoTi06CaKgxyDpG_UCGW2eipYQUC2CAHQx9Sln2_mF54BBuAgCT5hU29Fr_33KfaIGH5zTwNDEIdD" alt class="w-24 h-24 rounded-lg object-cover border border-light-outline-variant">
+                <div class="border-2 border-dashed border-light-outline rounded-lg p-5 flex-1 text-center hover:border-caramel cursor-pointer transition-colors bg-light-surface/40">
+                  <span class="material-symbols-outlined text-[28px] text-caramel">cloud_upload</span>
+                  <p class="text-body-sm font-label text-light-primary font-semibold mt-1">Klik atau seret foto baru ke sini</p>
+                  <p class="text-body-sm text-light-on-surface-variant">JPG, PNG atau WebP (Rasio 4:3 disarankan)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 4: GALLERY MANAGEMENT -->
+        <!-- ======================================================== -->
+        <section id="module-gallery" class="cms-module hidden space-y-6">
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <h3 class="font-headline text-headline-sm text-light-primary font-bold">Koleksi Media Galeri</h3>
+              <p class="text-body-sm text-light-on-surface-variant">Foto yang diunggah di sini langsung muncul pada halaman Galeri Publik.</p>
+            </div>
+            <button onclick="showToast(&#39;Dialog unggah banyak foto dibuka!&#39;)" class="px-5 py-2.5 bg-caramel hover:bg-[#A37046] text-white font-label text-label-md rounded-DEFAULT flex items-center gap-2 shadow-sm">
+              <span class="material-symbols-outlined text-[18px]">upload</span>
+              <span>Unggah Foto Baru</span>
+            </button>
+          </div>
+
+          <!-- Gallery Items Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Item 1 -->
+            <div class="bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col">
+              <div class="h-40 bg-light-surface-variant overflow-hidden relative group">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrB40TQv1Mk2aIq3MGAMb58hLQSuvFHC7Kj-RR3cmxsrozrsBpjthcqh12GTFUfMauXI-eDp3rpjgfpyNt8Ma37SPaoVXXt4YM6qHLoYjwrJ0FzqHeiMGa3WWJ56ztmegVY36rLsMFhwH5F-HVa1k3D_moFKOo6_QXs9aIko4IGyNrZLeXZj41AEarwp8jBOrVJ9QxFn_UK038Rml3BLIEutSNVmxZP3e8iMx7awGNADaP7WbNxueMALZX4Te24F" alt class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-espresso/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                  <button class="p-1.5 bg-white text-light-primary rounded hover:bg-caramel hover:text-white" title="Ganti">
+                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                  </button>
+                  <button onclick="triggerDeleteAlert(&#39;Foto Galeri: Interior Lounge&#39;)" class="p-1.5 bg-white text-light-error rounded hover:bg-red-700 hover:text-white" title="Hapus">
+                    <span class="material-symbols-outlined text-[18px]">delete</span>
+                  </button>
+                </div>
+              </div>
+              <div class="p-3">
+                <span class="text-label-sm text-caramel font-label">Interior &amp; Ruang</span>
+                <p class="font-label text-label-md text-light-primary font-semibold truncate">Ruang Santai Meja Kayu</p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col">
+              <div class="h-40 bg-light-surface-variant overflow-hidden relative group">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrAaizU2EuwDJ0woXO269zRRDcdSD2KABWyUxbMsjKBOhNYdFoLaJOqaH9ISoLblka-zw6DYjB46MmOsikRPARVkdIC8kGLyvXn6E7yEbiF1LwdYdgNC61VBLUGm9yriDQXBii9hmCOVfJ2ouUlemmzJnLedcRdn_qYsSRUe6yshKDEF5B5CmC6J-4fDUm6H4GdlKtfcAdZx-f5q5Zs2l3Qrns-B6hHYzADCuHRAwRO9y2qMsXkuuOaLITH1gGymC3c8" alt class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-espresso/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                  <button class="p-1.5 bg-white text-light-primary rounded hover:bg-caramel hover:text-white"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+                  <button onclick="triggerDeleteAlert(&#39;Foto Galeri&#39;)" class="p-1.5 bg-white text-light-error rounded hover:bg-red-700 hover:text-white"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+                </div>
+              </div>
+              <div class="p-3">
+                <span class="text-label-sm text-caramel font-label">Aktivitas Barista</span>
+                <p class="font-label text-label-md text-light-primary font-semibold truncate">Presisi Ekstraksi Latte</p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-white rounded-lg border border-light-outline-variant overflow-hidden shadow-sm flex flex-col">
+              <div class="h-40 bg-light-surface-variant overflow-hidden relative group">
+                <img src="https://lh3.googleusercontent.com/aida/ALJJyrCdwtM-zTMGuX_IVcHsguNcK2zKo9gGNi2ofJCHMMAKcmISTJLIqPFMc0Xm-K6yy31YNZxqUeSbOxJm8EUQfF0LeJw3qJUGHxbmGF9WvOyDfXgbcOetiR0uY9yMin74a_0MzJVEonK5P1gj1O_EJROKAX__nxx7901CJ40ae3BiJCVSp5FZ6KS9YzQ_IN2J3LcDEOgeqVv7JY4J8CTaAUHRXYYHXvb4fCGx4gCZU0hfaqSwKqTqOCJ-4_kVufQ" alt class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-espresso/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                  <button class="p-1.5 bg-white text-light-primary rounded hover:bg-caramel hover:text-white"><span class="material-symbols-outlined text-[18px]">edit</span></button>
+                  <button onclick="triggerDeleteAlert(&#39;Foto Galeri&#39;)" class="p-1.5 bg-white text-light-error rounded hover:bg-red-700 hover:text-white"><span class="material-symbols-outlined text-[18px]">delete</span></button>
+                </div>
+              </div>
+              <div class="p-3">
+                <span class="text-label-sm text-caramel font-label">Aktivitas Sangrai</span>
+                <p class="font-label text-label-md text-light-primary font-semibold truncate">Sangrai Drum Tradisional</p>
+              </div>
+            </div>
+
+            <!-- Item 4: Add New Photo Placeholder Card -->
+            <div onclick="showToast(&#39;Silakan pilih foto dari perangkat Anda.&#39;)" class="border-2 border-dashed border-light-outline rounded-lg h-56 flex flex-col items-center justify-center text-center p-4 hover:border-caramel hover:bg-white cursor-pointer transition-all">
+              <div class="w-12 h-12 rounded-full bg-light-secondary-container text-caramel flex items-center justify-center mb-2">
+                <span class="material-symbols-outlined text-[24px]">add_photo_alternate</span>
+              </div>
+              <p class="font-label text-label-md font-semibold text-light-primary">Tambah Foto Baru</p>
+              <p class="text-body-sm text-light-on-surface-variant mt-1">Unggah ke galeri publik</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 5: WEBSITE CONTENT MANAGEMENT (CORE) -->
+        <!-- ======================================================== -->
+        <section id="module-pages" class="cms-module hidden space-y-8">
+          <div class="bg-white p-6 rounded-xl border border-light-outline-variant flex items-center justify-between">
+            <div>
+              <h3 class="font-headline text-headline-sm text-light-primary font-bold">Manajemen Bagian Halaman Website</h3>
+              <p class="text-body-sm text-light-on-surface-variant">
+                Sunting headline, teks pengantar, jam operasional, dan footer tanpa menyentuh kode HTML.
+              </p>
+            </div>
+            <button onclick="showToast(&#39;Seluruh teks publik berhasil diperbarui!&#39;)" class="px-5 py-2.5 bg-light-primary hover:bg-[#291B16] text-white rounded-DEFAULT font-label text-label-md flex items-center gap-2 shadow">
+              <span class="material-symbols-outlined text-[18px]">save</span>
+              <span>Simpan Semua Perubahan</span>
+            </button>
+          </div>
+
+          <!-- Section 1: Homepage Hero Section -->
+          <div class="bg-white rounded-xl border border-light-outline-variant p-6 space-y-6">
+            <div class="flex items-center justify-between pb-3 border-b border-light-outline-variant">
+              <div class="flex items-center gap-2">
+                <span class="w-7 h-7 rounded bg-caramel/20 text-caramel flex items-center justify-center font-bold text-label-sm">1</span>
+                <h4 class="font-headline text-title-lg text-light-primary font-bold">Bagian Hero Beranda (Homepage Hero)</h4>
+              </div>
+              <span class="text-label-sm text-light-success font-label flex items-center gap-1">
+                <span class="material-symbols-outlined text-[16px]">visibility</span> Tayang di Beranda
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-light-primary font-medium">Headline Utama Beranda *</span>
+                <input type="text" value="Cerita dan Rasa dalam Setiap Cangkir." class="w-full px-4 py-2.5 bg-light-surface border border-light-outline rounded text-body-md font-headline font-semibold focus:border-light-primary outline-none">
+              </label>
+
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-light-primary font-medium">Teks Tombol Aksi Utama (CTA)</span>
+                <input type="text" value="Jelajahi Menu" class="w-full px-4 py-2.5 bg-light-surface border border-light-outline rounded text-body-md focus:border-light-primary outline-none">
+              </label>
+            </div>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-light-primary font-medium">Teks Pengantar Hero *</span>
+              <textarea rows="2" class="w-full px-4 py-2 bg-light-surface border border-light-outline rounded text-body-md focus:border-light-primary outline-none resize-none">Menghadirkan pengalaman menikmati kopi kurasi Nusantara dengan proses roasting presisi dan suasana ruang yang dirancang untuk percakapan hangat, inspirasi, serta ketenangan.</textarea>
+            </label>
+          </div>
+
+          <!-- Section 2: Contact Information & Hours -->
+          <div class="bg-white rounded-xl border border-light-outline-variant p-6 space-y-6">
+            <div class="flex items-center justify-between pb-3 border-b border-light-outline-variant">
+              <div class="flex items-center gap-2">
+                <span class="w-7 h-7 rounded bg-caramel/20 text-caramel flex items-center justify-center font-bold text-label-sm">2</span>
+                <h4 class="font-headline text-title-lg text-light-primary font-bold">Informasi Kontak &amp; Jam Operasional</h4>
+              </div>
+              <span class="text-label-sm text-light-on-surface-variant font-label">Tampil di Kontak &amp; Footer</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-sm text-light-primary font-medium">Nomor Telepon</span>
+                <input type="text" value="+62 21 555 7890" class="w-full px-3 py-2 bg-light-surface border border-light-outline rounded text-body-md">
+              </label>
+
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-sm text-light-primary font-medium">Email Resmi</span>
+                <input type="email" value="halo@coffeeshop-brand.id" class="w-full px-3 py-2 bg-light-surface border border-light-outline rounded text-body-md">
+              </label>
+
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-sm text-light-primary font-medium">Akun Instagram</span>
+                <input type="text" value="@yourcoffeebrand.id" class="w-full px-3 py-2 bg-light-surface border border-light-outline rounded text-body-md">
+              </label>
+            </div>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-sm text-light-primary font-medium">Alamat Lengkap Kedai</span>
+              <input type="text" value="Jl. Senopati Raya No. 42, Kebayoran Baru, Jakarta Selatan, 12190" class="w-full px-3 py-2 bg-light-surface border border-light-outline rounded text-body-md">
+            </label>
+          </div>
+
+          <!-- Section 3: Footer Content -->
+          <div class="bg-white rounded-xl border border-light-outline-variant p-6 space-y-6">
+            <div class="flex items-center justify-between pb-3 border-b border-light-outline-variant">
+              <div class="flex items-center gap-2">
+                <span class="w-7 h-7 rounded bg-caramel/20 text-caramel flex items-center justify-center font-bold text-label-sm">3</span>
+                <h4 class="font-headline text-title-lg text-light-primary font-bold">Pengaturan Footer &amp; Hak Cipta</h4>
+              </div>
+            </div>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-sm text-light-primary font-medium">Teks Deskripsi Footer</span>
+              <input type="text" value="Kedai kopi kurasi Nusantara yang menyatukan dedikasi petani, keahlian sangrai artisan, dan suasana ruang yang hangat untuk semua kalangan." class="w-full px-3 py-2 bg-light-surface border border-light-outline rounded text-body-md">
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-sm text-light-primary font-medium">Teks Hak Cipta (Copyright)</span>
+              <input type="text" value="© 2026 Coffee Shop Template. Demonstrasi proposal website profil." class="w-full px-3 py-2 bg-light-surface border border-light-outline rounded text-body-md">
+            </label>
+          </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- MODULE 6: WEBSITE SETTINGS -->
+        <!-- ======================================================== -->
+        <section id="module-settings" class="cms-module hidden space-y-6">
+          <div class="bg-white p-8 rounded-xl border border-light-outline-variant max-w-3xl space-y-6">
+            <div class="border-b border-light-outline-variant pb-4">
+              <h3 class="font-headline text-headline-sm text-light-primary font-bold">Identitas Merek &amp; Tema Website</h3>
+              <p class="text-body-sm text-light-on-surface-variant">Konfigurasi placeholder nama usaha dan logo agar mudah diganti saat presentasi klien.</p>
+            </div>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-light-primary font-medium">Nama Brand Kedai Kopi (Placeholder) *</span>
+              <input type="text" value="Coffee Shop" class="w-full px-4 py-2.5 bg-light-surface border border-light-outline rounded text-body-md focus:border-light-primary outline-none">
+              <span class="text-body-sm text-light-on-surface-variant">Dapat diganti dengan nama bisnis klien saat proses finalisasi.</span>
+            </label>
+
+            <div class="flex flex-col gap-2">
+              <span class="font-label text-label-md text-light-primary font-medium">Typographic Placeholder Logo</span>
+              <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-xl bg-light-primary text-light-on-primary font-headline text-headline-md font-bold flex items-center justify-center shadow">
+                  CS
+                </div>
+                <button onclick="showToast(&#39;Pilih file logo PNG/SVG dari komputer.&#39;)" class="px-4 py-2 border border-light-outline bg-white hover:bg-light-surface rounded font-label text-label-sm">
+                  Ganti File Logo
+                </button>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-light-outline-variant">
+              <h4 class="font-label text-label-md text-light-primary font-semibold mb-3">Warna Aksen Identitas</h4>
+              <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-espresso border border-white shadow"></span>
+                  <span class="text-body-sm text-light-on-surface">Espresso (#38251E)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-caramel border border-white shadow"></span>
+                  <span class="text-body-sm text-light-on-surface">Caramel (#B98255)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-6 h-6 rounded-full bg-cream border border-light-outline shadow"></span>
+                  <span class="text-body-sm text-light-on-surface">Cream (#F5F0E8)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-light-outline-variant flex justify-end">
+              <button onclick="showToast(&#39;Pengaturan identitas brand berhasil diperbarui!&#39;)" class="px-6 py-2.5 bg-light-primary hover:bg-[#291B16] text-white rounded font-label text-label-md shadow">
+                Simpan Konfigurasi
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal Component -->
+  <dialog id="delete-modal" class="p-0 rounded-xl bg-transparent backdrop:bg-black/50">
+    <div class="bg-white rounded-xl border border-light-outline-variant p-6 max-w-md w-full shadow-2xl">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 rounded-full bg-red-100 text-light-error flex items-center justify-center flex-shrink-0">
+          <span class="material-symbols-outlined text-[24px]">warning</span>
+        </div>
+        <div class="flex-1">
+          <h3 class="font-headline text-headline-sm text-light-primary font-bold mb-1">Konfirmasi Penghapusan</h3>
+          <p id="delete-modal-text" class="text-body-sm text-light-on-surface-variant mb-6">
+            Apakah Anda yakin ingin menghapus item ini? Tindakan ini akan segera memperbarui tampilan website publik.
+          </p>
+          <div class="flex items-center justify-end gap-3">
+            <button onclick="document.getElementById(&#39;delete-modal&#39;).close()" class="px-4 py-2 border border-light-outline rounded font-label text-label-sm text-light-on-surface-variant hover:bg-light-surface">
+              Batal
+            </button>
+            <button onclick="confirmDeletion()" class="px-4 py-2 bg-light-error hover:bg-red-800 text-white rounded font-label text-label-sm shadow">
+              Ya, Hapus Sekarang
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Interactive CMS Scripts -->
+  <script>
+    // Module switching
+    const titles = {
+      dashboard: ['Ikhtisar Dashboard Konten', 'Ringkasan status publikasi seluruh materi website profil kedai kopi Anda.'],
+      articles: ['Pengelolaan Artikel & Wawasan', 'Daftar artikel blog untuk edukasi kopi dan informasi kedai.'],
+      articleEditor: ['Editor Artikel', 'Formulir pembuatan dan penyuntingan konten artikel lengkap.'],
+      menu: ['Pengelolaan Katalog Menu', 'Atur harga, kategori, ketersediaan, serta foto produk kopi dan makanan.'],
+      menuEditor: ['Editor Produk Menu', 'Kelola detail produk, harga IDR, dan status tayang di beranda.'],
+      gallery: ['Pengelolaan Galeri Foto', 'Unggah dan kurasi dokumentasi visual ruang kedai serta aktivitas barista.'],
+      pages: ['Pengelolaan Konten Halaman Web', 'Sunting teks bagian beranda, kontak, dan footer secara mandiri.'],
+      settings: ['Pengaturan Identitas & Logo', 'Ubah placeholder nama brand dan parameter visual sistem.']
+    };
+
+    function switchCmsModule(moduleId) {
+      document.querySelectorAll('.cms-module').forEach(el => el.classList.add('hidden'));
+      
+      const target = document.getElementById('module-' + moduleId);
+      if (target) {
+        target.classList.remove('hidden');
+      }
+
+      // Update sidebar nav state
+      document.querySelectorAll('.cms-nav-item').forEach(el => {
+        el.classList.remove('bg-light-primary', 'text-light-on-primary');
+        el.classList.add('text-light-on-surface-variant');
+      });
+      const activeNav = document.getElementById('cms-nav-' + moduleId);
+      if (activeNav) {
+        activeNav.classList.remove('text-light-on-surface-variant');
+        activeNav.classList.add('bg-light-primary', 'text-light-on-primary');
+      }
+
+      // Update Header title
+      if (titles[moduleId]) {
+        document.getElementById('cms-page-title').innerText = titles[moduleId][0];
+        document.getElementById('cms-page-subtitle').innerText = titles[moduleId][1];
+      }
+    }
+
+    function openArticleEditor() {
+      switchCmsModule('article-editor');
+      document.getElementById('cms-page-title').innerText = titles['articleEditor'][0];
+      document.getElementById('cms-page-subtitle').innerText = titles['articleEditor'][1];
+    }
+
+    function openMenuEditor() {
+      switchCmsModule('menu-editor');
+      document.getElementById('cms-page-title').innerText = titles['menuEditor'][0];
+      document.getElementById('cms-page-subtitle').innerText = titles['menuEditor'][1];
+    }
+
+    // Toggle Availability Button State
+    function toggleAvailability(btn) {
+      const isAvailable = btn.innerText.includes('Tersedia');
+      if (isAvailable) {
+        btn.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label bg-gray-100 text-gray-600 border border-gray-300';
+        btn.innerHTML = '<span class="w-2 h-2 rounded-full bg-gray-400"></span><span>Habis</span>';
+        showToast('Status produk diubah menjadi Habis di website publik');
+      } else {
+        btn.className = 'inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label bg-emerald-50 text-light-success border border-emerald-200';
+        btn.innerHTML = '<span class="w-2 h-2 rounded-full bg-light-success"></span><span>Tersedia</span>';
+        showToast('Status produk diubah menjadi Tersedia di website publik');
+      }
+    }
+
+    // Delete Alert Dialog trigger
+    function triggerDeleteAlert(name) {
+      document.getElementById('delete-modal-text').innerText = `Hapus "${name}"? Tindakan ini langsung menghapus data terkait dari katalog website publik.`;
+      document.getElementById('delete-modal').showModal();
+    }
+
+    function confirmDeletion() {
+      document.getElementById('delete-modal').close();
+      showToast('Item berhasil dihapus dari database!');
+    }
+
+    // Toast Notification helper
+    function showToast(msg) {
+      const toast = document.getElementById('cms-toast');
+      document.getElementById('cms-toast-msg').innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3500);
+    }
+
+    // Login Overlay Trigger
+    function toggleLoginOverlay() {
+      document.getElementById('login-overlay').classList.toggle('hidden');
+    }
+
+    function handleLoginDemo(e) {
+      e.preventDefault();
+      toggleLoginOverlay();
+      showToast('Berhasil masuk sebagai Administrator!');
+    }
+  </script>
+
+
+</body></html>
