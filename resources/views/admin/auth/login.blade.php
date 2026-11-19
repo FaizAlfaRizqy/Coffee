@@ -55,18 +55,6 @@
       </p>
     </div>
 
-    <!-- Demo Credential Callout Pill -->
-    <div class="mb-6 p-4 rounded-xl bg-[#F5F0E8] border border-[#D9C7B5] text-xs text-espresso">
-      <div class="flex items-center gap-1.5 font-bold mb-1 text-caramel">
-        <span class="material-symbols-outlined text-[16px]">key</span>
-        <span>Kredensial Demo Administrator:</span>
-      </div>
-      <div class="space-y-0.5">
-        <p>Email: <code class="bg-white px-1.5 py-0.5 rounded border border-[#D9C7B5] font-mono select-all">admin@coffeeshop.test</code></p>
-        <p>Password: <code class="bg-white px-1.5 py-0.5 rounded border border-[#D9C7B5] font-mono select-all">admin123</code></p>
-      </div>
-    </div>
-
     @if($errors->any())
       <div class="mb-6 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs">
         {{ $errors->first() }}
@@ -85,9 +73,9 @@
           <input 
             type="email" 
             name="email" 
-            value="{{ old('email', 'admin@coffeeshop.test') }}" 
+            value="{{ old('email') }}" 
             required 
-            placeholder="admin@coffeeshop.test" 
+            placeholder="nama@email.com" 
             class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-900 focus:bg-white focus:border-espresso focus:ring-1 focus:ring-espresso outline-none">
         </div>
       </div>
@@ -101,7 +89,6 @@
           <input 
             type="password" 
             name="password" 
-            value="admin123" 
             required 
             placeholder="••••••••" 
             class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 rounded-lg text-sm text-gray-900 focus:bg-white focus:border-espresso focus:ring-1 focus:ring-espresso outline-none">
